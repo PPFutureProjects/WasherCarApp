@@ -14,7 +14,7 @@ public class ChoseRoleActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chose_role);
-
+        //Hello, Second commit
         driver = (Button) findViewById(R.id.driver);
         owner = (Button) findViewById(R.id.washer_owner);
         driver.setOnClickListener(this);
