@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "280500118687",
+    "firebase_url": "https://washer-9b304.firebaseio.com",
+    "project_id": "washer-9b304",
+    "storage_bucket": "washer-9b304.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:280500118687:android:37821035c833f5b7",
+        "android_client_info": {
+          "package_name": "androks.washerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "280500118687-4ofgful6svc6iuo32mnl25vv7rctqv6q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "androks.washerapp",
+            "certificate_hash": "0C2B1D81C612461EC7B0751B115B7A2BD1DE0CCD"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo1UuXw1ajyFjF1-RSxV2I4iBKEhCqQ3I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
