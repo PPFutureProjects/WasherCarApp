@@ -1,9 +1,19 @@
 package androks.washerapp.Activities;
 
+import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -18,21 +28,32 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import androks.washerapp.Models.Washer;
+import androks.washerapp.Modules.DirectionFinder;
+import androks.washerapp.Modules.DirectionFinderListener;
+import androks.washerapp.Modules.Route;
 import androks.washerapp.R;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
-public class WashersMapActivity extends BaseActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, View.OnClickListener, GoogleMap.OnMapClickListener {
+public class WashersMapActivity extends BaseActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, View.OnClickListener, GoogleMap.OnMapClickListener, DirectionFinderListener {
 
     private GoogleMap mMap;
+
+    private List<Polyline> polylinePaths = new ArrayList<>();
 
     //Reference for downloading all washers
     private DatabaseReference mWashersReference;
@@ -46,35 +67,46 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
     private HashMap<String, Washer> mWashersList = new HashMap<>();
     private HashMap<String, Marker> mMarkersList = new HashMap<>();
     private ArrayList<Washer> mWashersNonfreeList = new ArrayList<>();
+    private String currentWasherId;
 
+    /**
+     * Views
+     */
     //View for showing download all list of washers indicator
     private View mLoadingWashersView;
 
     //View to handle change showing marker types
-    private FloatingActionButton mChangeMarkerStatusFab;
+    private FloatingActionButton mShowOnlyFreeWashersFab;
     private boolean includeBusyWashers = true;
-    private FloatingActionButton mOrderToWash;
+    private FloatingActionButton mOrderToNearestWash;
 
     BottomSheetBehavior behavior;
+    boolean botoom_sheet_expanded;
+    private FloatingActionButton mOrderToCurrentWash;
 
-    boolean STATE_EXPANDED;
+    private ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_washers_map);
 
-        showProgressDialog();
+        registerReceiver(new BroadcastReceiver() {
+            public void onReceive(Context context, Intent intent) {
+                checkConnection();
+            }
+        }, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMapAsync(this);
 
         //Finding views
         mLoadingWashersView = findViewById(R.id.loading_washers_indicator);
 
-        mChangeMarkerStatusFab = (FloatingActionButton) findViewById(R.id.fab_status_marker);
-        mChangeMarkerStatusFab.setOnClickListener(this);
+        mShowOnlyFreeWashersFab = (FloatingActionButton) findViewById(R.id.fab_status_marker);
+        mShowOnlyFreeWashersFab.setOnClickListener(this);
 
-        mOrderToWash = (FloatingActionButton) findViewById(R.id.fab_get_direction);
-        mOrderToWash.setOnClickListener(this);
+        mOrderToNearestWash = (FloatingActionButton) findViewById(R.id.fab_get_direction);
+        mOrderToNearestWash.setOnClickListener(this);
 
         mWashersReference = FirebaseDatabase.getInstance().getReference().child("washers");
         mFreeWashersReference = FirebaseDatabase.getInstance().getReference().child("free-washers");
@@ -135,17 +167,17 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                if(newState == BottomSheetBehavior.STATE_EXPANDED){
-                   mChangeMarkerStatusFab.startAnimation(shrinkAnimation);
-                   mOrderToWash.startAnimation(shrinkAnimation);
-                   mChangeMarkerStatusFab.setVisibility(View.GONE);
-                   mOrderToWash.setVisibility(View.GONE);
-                   STATE_EXPANDED = true;
-               }else if(STATE_EXPANDED){
-                   mChangeMarkerStatusFab.startAnimation(growAnimation);
-                   mOrderToWash.startAnimation(growAnimation);
-                   mChangeMarkerStatusFab.setVisibility(View.VISIBLE);
-                   mOrderToWash.setVisibility(View.VISIBLE);
-                   STATE_EXPANDED = false;
+                   mShowOnlyFreeWashersFab.startAnimation(shrinkAnimation);
+                   mOrderToNearestWash.startAnimation(shrinkAnimation);
+                   mShowOnlyFreeWashersFab.setVisibility(View.GONE);
+                   mOrderToNearestWash.setVisibility(View.GONE);
+                   botoom_sheet_expanded = true;
+               }else if(botoom_sheet_expanded){
+                   mShowOnlyFreeWashersFab.startAnimation(growAnimation);
+                   mOrderToNearestWash.startAnimation(growAnimation);
+                   mShowOnlyFreeWashersFab.setVisibility(View.VISIBLE);
+                   mOrderToNearestWash.setVisibility(View.VISIBLE);
+                   botoom_sheet_expanded = false;
                }
             }
 
@@ -153,6 +185,7 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
             public void onSlide(@NonNull View bottomSheet, float slideOffset) {}
         });
         findViewById(R.id.bottom_sheet_title_layout).setOnClickListener(this);
+        findViewById(R.id.bottom_sheet_order_fab).setOnClickListener(this);
     }
 
     @Override
@@ -183,7 +216,6 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
         mMap.setMyLocationEnabled(true);
         mMap.setOnMarkerClickListener(this);
         mMap.setOnMapClickListener(this);
-        hideProgressDialog();
     }
 
     private void setWasherToMap(Washer washer) {
@@ -206,6 +238,7 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
 
     @Override
     public boolean onMarkerClick(Marker marker) {
+        currentWasherId = marker.getTitle();
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 14));
         inflateWasherDetails(mWashersList.get(marker.getTitle()));
         behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
@@ -224,7 +257,6 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
     @Override
     public void onMapClick(LatLng latLng) {
         behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-
     }
 
     @Override
@@ -241,12 +273,82 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
                     behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                 }
                 break;
+            case R.id.bottom_sheet_order_fab:
+                try {
+                    new DirectionFinder(this, new LatLng(50.4464256, 30.4520298), mMarkersList.get(currentWasherId).getPosition()).execute();
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                break;
         }
     }
 
     private void addBusyWashersToMap(boolean temp){
         for (Washer washer : mWashersNonfreeList)
             mMarkersList.get(washer.getId()).setVisible(temp);
-        mChangeMarkerStatusFab.setImageResource(temp?R.mipmap.ic_marker_free :   R.mipmap.ic_markers_all);
+        mShowOnlyFreeWashersFab.setImageResource(temp?R.mipmap.ic_marker_free :   R.mipmap.ic_markers_all);
+    }
+
+    @Override
+    public void onDirectionFinderStart() {
+        progressDialog = ProgressDialog.show(this, "Please wait", "Finding direction...", true);
+
+        if (polylinePaths != null)
+            for (Polyline polyline:polylinePaths)
+                polyline.remove();
+    }
+
+    @Override
+    public void onDirectionFinderSuccess(List<Route> routes) {
+        progressDialog.dismiss();
+        polylinePaths = new ArrayList<>();
+
+        for (Route route : routes) {
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(route.startLocation, 16));
+
+            PolylineOptions polylineOptions = new PolylineOptions().
+                    geodesic(true).
+                    color(Color.BLUE).
+                    width(10);
+
+            for (int i = 0; i < route.points.size(); i++)
+                polylineOptions.add(route.points.get(i));
+
+            polylinePaths.add(mMap.addPolyline(polylineOptions));
+        }
+    }
+
+    private void checkConnection() {
+        boolean isProcess;
+        try {
+            ConnectivityManager connMgr = (ConnectivityManager)
+                    getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
+            isProcess = networkInfo != null && networkInfo.isConnected();
+        } catch (Exception e) {
+            isProcess = false;
+            e.printStackTrace();
+        }
+
+        if (!isProcess) {
+            try {
+                AlertDialog.Builder builder =
+                        new AlertDialog.Builder(WashersMapActivity.this, R.style.AppCompatAlertDialogStyle);
+                builder.setTitle("Internet not avaliable");
+                builder.setMessage("You are offline. Please, check your internet connection");
+                builder.setPositiveButton("Try Again", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        checkConnection();
+                    }
+                });
+                builder.setCancelable(false);
+                builder.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            Crouton.makeText(WashersMapActivity.this, "Internet connection avaliable", Style.CONFIRM).show();
+        }
     }
 }

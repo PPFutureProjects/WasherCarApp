@@ -480,6 +480,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\de.keyboardsurfer.android.widget\crouton\1.8.5\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b81c788c5f175f94ddaac2f65e5d1726371e0963">
+        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\de.keyboardsurfer.android.widget-crouton-1.8.5_3829e8d49d31669bbb64f46a124c5b4b84df0a0f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.1\jars\libs\internal_impl-25.0.1.jar"
         jumboMode="true"
         optimize="true"
@@ -498,11 +507,20 @@
     </item>
     <item
         is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.maps.android\android-maps-utils\0.4.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6f57b76211a1d7b0c1f18873af59faad95664681">
+        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.maps.android-android-maps-utils-0.4.4_a4d0ad536bf13c665d565c20fe3872485ecff770\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="53f45c9e597fb88f90dc3fe095108e9bce635d1f">
+        sha1="db5cc78f08e8684fab715998e5615f704b662b66">
         <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_2303af31d2abd1fe7803cfe698c7f5742bc68609\classes.dex" />
     </item>
     <item
