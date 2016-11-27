@@ -1,9 +1,12 @@
 package androks.washerapp.Activities;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,10 +57,12 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
 
     BottomSheetBehavior behavior;
 
+    boolean STATE_EXPANDED;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_washers_map);
+
         showProgressDialog();
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMapAsync(this);
@@ -116,8 +121,37 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
             }
         };
 
+        /**
+         * Bottom Sheet
+         */
+        // To handle FAB animation upon entrance and exit
+        final Animation growAnimation = AnimationUtils.loadAnimation(this, R.anim.simple_grow);
+        final Animation shrinkAnimation = AnimationUtils.loadAnimation(this, R.anim.simple_shrink);
+
         behavior = BottomSheetBehavior.from(findViewById(R.id.coordinatorLayout).findViewById(R.id.bottom_sheet));
         behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+
+        behavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+               if(newState == BottomSheetBehavior.STATE_EXPANDED){
+                   mChangeMarkerStatusFab.startAnimation(shrinkAnimation);
+                   mOrderToWash.startAnimation(shrinkAnimation);
+                   mChangeMarkerStatusFab.setVisibility(View.GONE);
+                   mOrderToWash.setVisibility(View.GONE);
+                   STATE_EXPANDED = true;
+               }else if(STATE_EXPANDED){
+                   mChangeMarkerStatusFab.startAnimation(growAnimation);
+                   mOrderToWash.startAnimation(growAnimation);
+                   mChangeMarkerStatusFab.setVisibility(View.VISIBLE);
+                   mOrderToWash.setVisibility(View.VISIBLE);
+                   STATE_EXPANDED = false;
+               }
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {}
+        });
         findViewById(R.id.bottom_sheet_title_layout).setOnClickListener(this);
     }
 
@@ -175,6 +209,7 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 14));
         inflateWasherDetails(mWashersList.get(marker.getTitle()));
         behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        findViewById(R.id.bottom_sheet_order_fab).startAnimation(AnimationUtils.loadAnimation(this, R.anim.simple_grow));
         return true;
     }
 
@@ -188,7 +223,8 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
 
     @Override
     public void onMapClick(LatLng latLng) {
-        behavior.setHideable(true);
+        behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+
     }
 
     @Override

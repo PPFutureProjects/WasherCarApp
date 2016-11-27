@@ -15,8 +15,8 @@
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:orientation="vertical"
-            android:paddingLeft="20dp"
-            android:paddingStart="20dp"
+            android:paddingLeft="56dp"
+            android:paddingStart="56dp"
             android:paddingTop="15dp">
 
             <LinearLayout
@@ -24,13 +24,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:orientation="horizontal"
-                android:paddingLeft="10dp"
                 android:paddingRight="3dp">
 
                 <TextView
                     android:id="@+id/washer_name"
                     style="@style/TextAppearance.AppCompat.Headline"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Dandelion Chocolate" />
             </LinearLayout>
@@ -40,7 +39,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/activity_horizontal_margin"
                 android:orientation="horizontal"
-                android:paddingLeft="20dp"
                 android:paddingRight="20dp">
 
                 <TextView
@@ -163,7 +161,7 @@
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/bottom_sheet_fab"
+        android:id="@+id/bottom_sheet_order_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
