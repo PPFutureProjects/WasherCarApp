@@ -1,12 +1,9 @@
 package androks.washerapp.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,10 +27,7 @@ import java.util.HashMap;
 import androks.washerapp.Models.Washer;
 import androks.washerapp.R;
 
-public class WashersMapActivity extends BaseActivity implements OnMapReadyCallback,
-        GoogleMap.OnMarkerClickListener,
-        View.OnClickListener,
-        GoogleMap.OnMapClickListener {
+public class WashersMapActivity extends BaseActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, View.OnClickListener, GoogleMap.OnMapClickListener {
 
     private GoogleMap mMap;
 
@@ -48,22 +42,17 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
     //Relation between markers on map and list of washers
     private HashMap<String, Washer> mWashersList = new HashMap<>();
     private HashMap<String, Marker> mMarkersList = new HashMap<>();
-
     private ArrayList<Washer> mWashersNonfreeList = new ArrayList<>();
-
-    private String currentWasher;
 
     //View for showing download all list of washers indicator
     private View mLoadingWashersView;
 
-    //Views for showing info window about concrete washer
-    private LinearLayout mInfoWindow;
-
     //View to handle change showing marker types
-    private FloatingActionButton mChangeMarkerStatusButton;
+    private FloatingActionButton mChangeMarkerStatusFab;
     private boolean includeBusyWashers = true;
-
     private FloatingActionButton mOrderToWash;
+
+    BottomSheetBehavior behavior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,11 +65,8 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
         //Finding views
         mLoadingWashersView = findViewById(R.id.loading_washers_indicator);
 
-        mInfoWindow = (LinearLayout) findViewById(R.id.washer_info_window);
-        mInfoWindow.addView(LayoutInflater.from(getApplicationContext()).inflate(R.layout.marker_info_window, null));
-
-        mChangeMarkerStatusButton = (FloatingActionButton) findViewById(R.id.fab_status_marker);
-        mChangeMarkerStatusButton.setOnClickListener(this);
+        mChangeMarkerStatusFab = (FloatingActionButton) findViewById(R.id.fab_status_marker);
+        mChangeMarkerStatusFab.setOnClickListener(this);
 
         mOrderToWash = (FloatingActionButton) findViewById(R.id.fab_get_direction);
         mOrderToWash.setOnClickListener(this);
@@ -129,6 +115,10 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
                 Toast.makeText(getApplicationContext(), "Error while download\n Check your internet connection", Toast.LENGTH_SHORT).show();
             }
         };
+
+        behavior = BottomSheetBehavior.from(findViewById(R.id.coordinatorLayout).findViewById(R.id.bottom_sheet));
+        behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+        findViewById(R.id.bottom_sheet_title_layout).setOnClickListener(this);
     }
 
     @Override
@@ -140,7 +130,6 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
         mWashersReference.addValueEventListener(mListenerForDownloadWashers);
         //Adding single value listener to download list of only free washers
         mFreeWashersReference.addValueEventListener(mListenerForDownloadFreeWashersList);
-
     }
 
 
@@ -184,47 +173,37 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
     @Override
     public boolean onMarkerClick(Marker marker) {
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 14));
-        mInfoWindow.setVisibility(View.VISIBLE);
-        showInfoWindowMarkerIndicator(true);
-        inflateWasherDetailsInfoView(mWashersList.get(marker.getTitle()));
-        showInfoWindowMarkerIndicator(false);
-        currentWasher = marker.getTitle();
+        inflateWasherDetails(mWashersList.get(marker.getTitle()));
+        behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         return true;
     }
 
-    private void showInfoWindowMarkerIndicator(boolean show) {
-        ProgressBar progressBar = (ProgressBar) mInfoWindow.findViewById(R.id.progress_bar_for_info_window_marker);
-        progressBar.setVisibility(show ? View.VISIBLE : View.INVISIBLE);
-        LinearLayout details = (LinearLayout) mInfoWindow.findViewById(R.id.info_window_marker_details);
-        details.setVisibility(show ? View.INVISIBLE : View.VISIBLE);
-    }
-
-    private void inflateWasherDetailsInfoView(Washer washer) {
-        TextView name = (TextView) mInfoWindow.findViewById(R.id.washer_name);
-        name.setText(washer.getName());
-        ((TextView) findViewById(R.id.phone)).setText(washer.getPhone());
-        ((TextView) findViewById(R.id.hours)).setText(washer.getHours());
-        findViewById(R.id.wifi).setVisibility(washer.isWifi() ? View.VISIBLE : View.GONE);
-        findViewById(R.id.lunch).setVisibility(washer.isCafe() ? View.VISIBLE : View.GONE);
+    private void inflateWasherDetails(Washer washer) {
+        View bottomSheet = findViewById(R.id.bottom_sheet);
+        ((TextView)bottomSheet.findViewById(R.id.washer_name)).setText(washer.getName());
+        ((TextView)bottomSheet.findViewById(R.id.washer_location)).setText(String.valueOf(washer.getLangtitude()+washer.getLongtitude()));
+        ((TextView)bottomSheet.findViewById(R.id.washer_phone)).setText(washer.getPhone());
+        ((TextView)bottomSheet.findViewById(R.id.washer_opening_hours)).setText(washer.getHours());
     }
 
     @Override
     public void onMapClick(LatLng latLng) {
-        mInfoWindow.setVisibility(View.INVISIBLE);
+        behavior.setHideable(true);
     }
 
     @Override
     public void onClick(View view) {
-        mInfoWindow.setVisibility(View.INVISIBLE);
         switch (view.getId()) {
             case R.id.fab_status_marker:
                 includeBusyWashers = !includeBusyWashers;
                 addBusyWashersToMap(includeBusyWashers);
                 break;
-            case R.id.goto_washer_page:
-                Intent intent = new Intent(getApplicationContext(), WasherActivity.class);
-                intent.putExtra("id", currentWasher);
-                startActivity(intent);
+            case R.id.bottom_sheet_title_layout:
+                if (behavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
+                    behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                } else {
+                    behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                }
                 break;
         }
     }
@@ -232,6 +211,6 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
     private void addBusyWashersToMap(boolean temp){
         for (Washer washer : mWashersNonfreeList)
             mMarkersList.get(washer.getId()).setVisible(temp);
-        mChangeMarkerStatusButton.setImageResource(temp ?R.mipmap.ic_marker_free :   R.mipmap.ic_markers_all);
+        mChangeMarkerStatusFab.setImageResource(temp?R.mipmap.ic_marker_free :   R.mipmap.ic_markers_all);
     }
 }
