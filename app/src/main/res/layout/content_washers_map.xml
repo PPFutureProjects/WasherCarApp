@@ -22,7 +22,7 @@
         android:layout_alignParentTop="true"
         android:background="#66ffffff"
         android:orientation="horizontal"
-        android:padding="4dp">
+        android:padding="6dp">
 
         <ProgressBar
             style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Loading washers" />
+            android:text="Loading" />
     </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton

@@ -11,7 +11,7 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/bottom_sheet_title_layout"
+            android:id="@+id/bottom_sheet_title"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:orientation="vertical"
