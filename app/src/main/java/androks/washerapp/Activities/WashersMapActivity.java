@@ -1,13 +1,16 @@
 package androks.washerapp.Activities;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
+import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -17,7 +20,6 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -27,11 +29,15 @@ import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.LocationListener;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
+import com.google.android.gms.location.LocationSettingsStates;
+import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -61,22 +67,17 @@ import androks.washerapp.R;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
-public class WashersMapActivity extends BaseActivity implements OnMapReadyCallback,
-        GoogleMap.OnMarkerClickListener,
-        View.OnClickListener,
-        GoogleMap.OnMapClickListener,
-        DirectionFinderListener,
-        GoogleApiClient.ConnectionCallbacks,
-        GoogleApiClient.OnConnectionFailedListener,
-        LocationListener{
+public class WashersMapActivity extends BaseActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, View.OnClickListener, GoogleMap.OnMapClickListener, DirectionFinderListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
+    private static final int REQUEST_CHECK_SETTINGS = 1000;
+    private long UPDATE_INTERVAL = 10 * 1000;  /* 10 secs */
+    private long FASTEST_INTERVAL = 2000; /* 2 sec */
 
     private GoogleMap mMap;
 
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
-
-    private long UPDATE_INTERVAL = 10 * 1000;  /* 10 secs */
-    private long FASTEST_INTERVAL = 2000; /* 2 sec */
+    private LocationManager locationManager;
+    Status GpsStatus;
 
     private Location currentLocation;
 
@@ -117,6 +118,7 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
     boolean botoom_sheet_expanded;
     private FloatingActionButton mOrderToCurrentWash;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,19 +134,53 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMapAsync(this);
 
-        if (mGoogleApiClient == null) {
-            mGoogleApiClient = new GoogleApiClient.Builder(this)
-                    .addConnectionCallbacks(this)
-                    .addOnConnectionFailedListener(this)
-                    .addApi(LocationServices.API)
-                    .build();
-        }
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addApi(LocationServices.API)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this).build();
 
-        mLocationRequest = new LocationRequest().setInterval(10000).setFastestInterval(5000).setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder().addLocationRequest(mLocationRequest);
-        PendingResult<LocationSettingsResult> result =
-                LocationServices.SettingsApi.checkLocationSettings(mGoogleApiClient,
+        createLocationRequest();
+
+        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
+                .addLocationRequest(mLocationRequest).setAlwaysShow(true);
+
+        PendingResult<LocationSettingsResult> result = LocationServices.SettingsApi.checkLocationSettings(mGoogleApiClient,
                         builder.build());
+
+        result.setResultCallback(new ResultCallback<LocationSettingsResult>() {
+            @Override
+            public void onResult(LocationSettingsResult result) {
+                GpsStatus = result.getStatus();
+                final LocationSettingsStates state = result.getLocationSettingsStates();
+                switch (GpsStatus.getStatusCode()) {
+                    case LocationSettingsStatusCodes.SUCCESS:
+                        // All location settings are satisfied. The client can initialize location
+                        // requests here.
+
+                        Toast.makeText(getApplicationContext(), "On gps", Toast.LENGTH_SHORT).show();
+
+                        break;
+                    case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
+                        // Location settings are not satisfied. But could be fixed by showing the user
+                        // a dialog.
+
+                        try {
+                            // Show the dialog by calling startResolutionForResult(),
+                            // and check the result in onActivityResult().
+                            GpsStatus.startResolutionForResult(WashersMapActivity.this, REQUEST_CHECK_SETTINGS);
+                        } catch (IntentSender.SendIntentException e) {
+                            // Ignore the error.
+                        }
+                        break;
+                    case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
+                        Toast.makeText(getApplicationContext(), "Gps off", Toast.LENGTH_SHORT).show();
+                        // Location settings are not satisfied. However, we have no way to fix the
+                        // settings so we won't show the dialog.
+                        break;
+                }
+            }
+        });
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         isDirectionBuilt = false;
 
@@ -190,7 +226,7 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
                 if (dataSnapshot.hasChildren())
                     for (DataSnapshot child : dataSnapshot.getChildren()) {
                         Washer washer = mWashersList.get(child.getKey());
-                        if(washer != null) {
+                        if (washer != null) {
                             washer.setStatus((Boolean) child.getValue());
 
                             if (!washer.getStatus())
@@ -227,33 +263,38 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
         behavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
-               if(newState == BottomSheetBehavior.STATE_EXPANDED){
-                   mShowOnlyFreeWashersFab.startAnimation(shrinkAnimation);
-                   mOrderToNearestWash.startAnimation(shrinkAnimation);
-                   mShowOnlyFreeWashersFab.setVisibility(View.GONE);
-                   mOrderToNearestWash.setVisibility(View.GONE);
-                   botoom_sheet_expanded = true;
-               }else if(botoom_sheet_expanded){
-                   mShowOnlyFreeWashersFab.startAnimation(growAnimation);
-                   mOrderToNearestWash.startAnimation(growAnimation);
-                   mShowOnlyFreeWashersFab.setVisibility(View.VISIBLE);
-                   mOrderToNearestWash.setVisibility(View.VISIBLE);
-                   botoom_sheet_expanded = false;
-               }
+                if (newState == BottomSheetBehavior.STATE_EXPANDED) {
+                    mShowOnlyFreeWashersFab.startAnimation(shrinkAnimation);
+                    mOrderToNearestWash.startAnimation(shrinkAnimation);
+                    mShowOnlyFreeWashersFab.setVisibility(View.GONE);
+                    mOrderToNearestWash.setVisibility(View.GONE);
+                    botoom_sheet_expanded = true;
+                } else if (botoom_sheet_expanded) {
+                    mShowOnlyFreeWashersFab.startAnimation(growAnimation);
+                    mOrderToNearestWash.startAnimation(growAnimation);
+                    mShowOnlyFreeWashersFab.setVisibility(View.VISIBLE);
+                    mOrderToNearestWash.setVisibility(View.VISIBLE);
+                    botoom_sheet_expanded = false;
+                }
             }
 
             @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {}
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+            }
         });
         //Adding listeners for bottom sheet views
         findViewById(R.id.bottom_sheet_title).setOnClickListener(this);
         findViewById(R.id.bottom_sheet_order_fab).setOnClickListener(this);
     }
 
+    protected void onStart() {
+        super.onStart();
+        mGoogleApiClient.connect();
+    }
+
     @Override
     protected void onResume() {
         super.onResume();
-        mGoogleApiClient.connect();
         mLoadingIndicator.setVisibility(View.VISIBLE);
 
         //Adding single value listener to download list of washers
@@ -264,10 +305,17 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
     }
 
     @Override
+    protected void onPause() {
+        stopLocationUpdates();
+        super.onPause();
+    }
+
+    @Override
     protected void onStop() {
-        super.onStop();
+
         // Disconnecting the client invalidates it.
         LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
+
         // only stop if it's connected, otherwise we crash
         if (mGoogleApiClient != null) {
             mGoogleApiClient.disconnect();
@@ -276,13 +324,26 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
         mWashersReference.removeEventListener(mListenerForDownloadWashers);
         //Adding single value listener to download list of only free washers
         mFreeWashersReference.removeEventListener(mListenerForDownloadFreeWashersList);
+        super.onStop();
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        if (mGoogleApiClient.isConnected()) {
-            mGoogleApiClient.disconnect();
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            // Check for the integer request code originally supplied to startResolutionForResult().
+            case REQUEST_CHECK_SETTINGS:
+                switch (resultCode) {
+                    case Activity.RESULT_OK:
+
+                            startLocationUpdates();
+                            buildRouteFromCurrentToMarkerLocation();
+
+                        break;
+                    case Activity.RESULT_CANCELED:
+                        break;
+                }
+                break;
         }
     }
 
@@ -347,10 +408,10 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
     private void inflateWasherDetails(Washer washer) {
         //TODO: create normal washers details view
         View bottomSheet = findViewById(R.id.bottom_sheet);
-        ((TextView)bottomSheet.findViewById(R.id.washer_name)).setText(washer.getName());
-        ((TextView)bottomSheet.findViewById(R.id.washer_location)).setText(String.valueOf(washer.getLangtitude()+washer.getLongtitude()));
-        ((TextView)bottomSheet.findViewById(R.id.washer_phone)).setText(washer.getPhone());
-        ((TextView)bottomSheet.findViewById(R.id.washer_opening_hours)).setText(washer.getHours());
+        ((TextView) bottomSheet.findViewById(R.id.washer_name)).setText(washer.getName());
+        ((TextView) bottomSheet.findViewById(R.id.washer_location)).setText(String.valueOf(washer.getLangtitude() + washer.getLongtitude()));
+        ((TextView) bottomSheet.findViewById(R.id.washer_phone)).setText(washer.getPhone());
+        ((TextView) bottomSheet.findViewById(R.id.washer_opening_hours)).setText(washer.getHours());
     }
 
     @Override
@@ -360,50 +421,22 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
     }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.fab_status_marker:
-                includeBusyWashers = !includeBusyWashers;
-                for (Washer washer : mWashersNonfreeList)
-                    mMarkersList.get(washer.getId()).setVisible(includeBusyWashers);
-                mShowOnlyFreeWashersFab.setImageResource(includeBusyWashers?R.mipmap.ic_marker_free :   R.mipmap.ic_markers_all);
-                break;
-
-            case R.id.bottom_sheet_title:
-                if (behavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
-                    behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-                } else
-                    behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                break;
-
-            case R.id.bottom_sheet_order_fab:
-                if(currentLocation != null){
-                    try {
-                        new DirectionFinder(this, new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), mMarkersList.get(currentWasherId).getPosition()).execute();
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    }
-                }
-                isDirectionBuilt = false;
-                break;
-        }
-    }
-
-    @Override
     public void onDirectionFinderStart() {
         mLoadingIndicator.setVisibility(View.VISIBLE);
-        if (polylinePaths != null)
-            for (Polyline polyline:polylinePaths)
-                polyline.remove();
     }
 
     @Override
     public void onDirectionFinderSuccess(List<Route> routes) {
         mLoadingIndicator.setVisibility(View.GONE);
+
+        if (polylinePaths != null)
+            for (Polyline polyline : polylinePaths)
+                polyline.remove();
+
         polylinePaths = new ArrayList<>();
 
         for (Route route : routes) {
-            if(!isDirectionBuilt)
+            if (!isDirectionBuilt)
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(route.startLocation, 14));
 
             PolylineOptions polylineOptions = new PolylineOptions().
@@ -415,10 +448,45 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
                 polylineOptions.add(route.points.get(i));
 
             polylinePaths.add(mMap.addPolyline(polylineOptions));
+
             isDirectionBuilt = true;
             currentWasherLocation = route.endLocation;
         }
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.fab_status_marker:
+                includeBusyWashers = !includeBusyWashers;
+                for (Washer washer : mWashersNonfreeList)
+                    mMarkersList.get(washer.getId()).setVisible(includeBusyWashers);
+                mShowOnlyFreeWashersFab.setImageResource(includeBusyWashers ? R.mipmap.ic_marker_free : R.mipmap.ic_markers_all);
+                break;
+
+            case R.id.bottom_sheet_title:
+                if (behavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
+                    behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+                } else
+                    behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                break;
+
+            case R.id.bottom_sheet_order_fab:
+                currentWasherLocation = mMarkersList.get(currentWasherId).getPosition();
+                if(gpsEnabled()){
+                    buildRouteFromCurrentToMarkerLocation();
+                    isDirectionBuilt = false;
+                }else{
+                    try {
+                        GpsStatus.startResolutionForResult(WashersMapActivity.this, REQUEST_CHECK_SETTINGS);
+                    } catch (IntentSender.SendIntentException e) {
+                        e.printStackTrace();
+                    }
+                }
+                break;
+        }
+    }
+
 
     private void checkInternetConnection() {
         boolean isProcess;
@@ -459,10 +527,10 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
         Location mCurrentLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         // Note that this can be NULL if last location isn't already known.
         if (mCurrentLocation != null) {
-            // Print current location if not null
-            Log.d("DEBUG", "current location: " + mCurrentLocation.toString());
             LatLng latLng = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 14));
         }
+
         // Begin polling for new location updates.
         startLocationUpdates();
     }
@@ -478,14 +546,14 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
 
     // Trigger new location updates at interval
     protected void startLocationUpdates() {
-        // Create the location request
-        mLocationRequest = LocationRequest.create()
-                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
-                .setInterval(UPDATE_INTERVAL)
-                .setFastestInterval(FASTEST_INTERVAL);
         // Request location updates
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient,
                 mLocationRequest, this);
+    }
+
+    protected void stopLocationUpdates() {
+        LocationServices.FusedLocationApi.removeLocationUpdates(
+                mGoogleApiClient, this);
     }
 
     @Override
@@ -495,7 +563,19 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
     public void onLocationChanged(Location location) {
         // New location has now been determined
         currentLocation = location;
-        if(isDirectionBuilt){
+        buildRouteFromCurrentToMarkerLocation();
+    }
+
+    protected void createLocationRequest() {
+        // Create the location request
+        mLocationRequest = LocationRequest.create()
+                .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
+                .setInterval(UPDATE_INTERVAL)
+                .setFastestInterval(FASTEST_INTERVAL);
+    }
+
+    protected void buildRouteFromCurrentToMarkerLocation(){
+        if(currentLocation != null && currentWasherLocation != null) {
             try {
                 new DirectionFinder(this, new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude()), currentWasherLocation).execute();
             } catch (UnsupportedEncodingException e) {
@@ -504,4 +584,9 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
         }
     }
 
+    protected boolean gpsEnabled(){
+        if (GpsStatus.getStatusCode() == LocationSettingsStatusCodes.SUCCESS && locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
+            return true;
+        return false;
+    }
 }
