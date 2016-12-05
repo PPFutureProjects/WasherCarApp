@@ -160,7 +160,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="9894d09714ae4cefb8b151f677559422e4295d57">
+        sha1="483b09329f016915d4db3d8903ddc06267c52362">
         <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d5676bbb342380dc0305a71b73fbcb5e4b583175\classes.dex" />
     </item>
     <item
@@ -520,7 +520,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="ae348609c4a71dced48a932b696b33754ec833ca">
+        sha1="1958f4251d9285d8af9e38d72d6c4d185b9e7a05">
         <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_2303af31d2abd1fe7803cfe698c7f5742bc68609\classes.dex" />
     </item>
     <item
