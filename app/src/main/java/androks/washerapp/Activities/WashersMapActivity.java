@@ -149,6 +149,8 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
      * Views
      */
 
+    private View mProgressBar;
+
     //View to handle change showing marker types
     private FloatingActionButton mShowOnlyFreeWashersFab;
 
@@ -177,6 +179,9 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_washers_map);
+        mProgressBar = findViewById(R.id.loading_indicator);
+        mProgressBar.setVisibility(View.VISIBLE);
+
         includeBusyWashers = true;
         buildWayToNearWash = false;
 
@@ -222,12 +227,12 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
         mListenerForDownloadWashers = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                mProgressBar.setVisibility(View.VISIBLE);
                 for (DataSnapshot child : dataSnapshot.getChildren()) {
                     Washer temp = child.getValue(Washer.class);
                     mWashersList.put(temp.getId(), temp);
                 }
-
+                mProgressBar.setVisibility(View.GONE);
             }
 
             @Override
@@ -239,7 +244,7 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
         mListenerForDownloadFreeWashersList = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-
+                mProgressBar.setVisibility(View.VISIBLE);
                 if (dataSnapshot.hasChildren()) {
                     for (DataSnapshot child : dataSnapshot.getChildren()) {
                         Washer washer = mWashersList.get(child.getKey());
@@ -256,7 +261,7 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
                             setWasherToMap(mWashersList.get(child.getKey()));
                         }
                     }
-
+                    mProgressBar.setVisibility(View.GONE);
                 }
             }
 
@@ -556,13 +561,12 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
 
     @Override
     public void onMapClick(LatLng latLng) {
-        //Hide bottom sheet if map clicked
-        behavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+
     }
 
     @Override
     public void onDirectionFinderStart() {
-
+        mProgressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -592,7 +596,7 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
             isDirectionAlreadyBuilt = true;
             mCurrentWasherLocation = route.endLocation;
         }
-
+        mProgressBar.setVisibility(View.GONE);
     }
 
     @Override
@@ -613,6 +617,7 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
                 break;
 
             case R.id.bottom_sheet_order_fab:
+                mProgressBar.setVisibility(View.VISIBLE);
                 mCurrentWasherLocation = mMarkersList.get(currentWasherId).getPosition();
                 checkLocationSettings();
                 break;
@@ -622,6 +627,7 @@ public class WashersMapActivity extends BaseActivity implements OnMapReadyCallba
                     Toast.makeText(getApplicationContext(), "No washers avaliable", Toast.LENGTH_SHORT).show();
                     break;
                 }
+                mProgressBar.setVisibility(View.VISIBLE);
                 buildWayToNearWash = true;
                 checkLocationSettings();
                 break;

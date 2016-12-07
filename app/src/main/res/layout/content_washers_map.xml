@@ -33,10 +33,9 @@
         android:layout_alignStart="@+id/fab_get_direction" />
 
     <LinearLayout
-        android:id="@+id/loading_washers_indicator"
+        android:id="@+id/loading_indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/toolbar"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"

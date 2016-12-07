@@ -7,40 +7,38 @@
     android:fitsSystemWindows="true">
 
 
-    <RelativeLayout
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.design.widget.CoordinatorLayout
-            android:id="@+id/coordinatorLayout"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <include layout="@layout/toolbar" />
             <include
                 android:id="@+id/content_washers_map"
                 layout="@layout/content_washers_map" />
+        </LinearLayout>
 
-            <android.support.v4.widget.NestedScrollView
-                android:id="@+id/bottom_sheet"
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/bottom_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:behavior_hideable="true"
+            app:behavior_peekHeight="145dp"
+            app:layout_behavior="@string/bottom_sheet_behavior">
+
+            <include
+                layout="@layout/bottom_sheet_content"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:behavior_hideable="true"
-                app:behavior_peekHeight="145dp"
-                app:layout_behavior="@string/bottom_sheet_behavior">
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true" />
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.design.widget.CoordinatorLayout>
 
-                <include
-                    layout="@layout/bottom_sheet_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fitsSystemWindows="true" />
-
-            </android.support.v4.widget.NestedScrollView>
-        </android.support.design.widget.CoordinatorLayout>
-
-        <include layout="@layout/toolbar" />
-
-    </RelativeLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
