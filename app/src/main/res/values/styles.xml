@@ -27,9 +27,9 @@
     </style>
 
     <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="colorAccent">#ffffff</item>
-        <item name="android:textColorPrimary">#FFFFFF</item>
-        <item name="android:background">#5fa3d0</item>
+        <item name="colorAccent">#5fa3d0</item>
+        <item name="android:textColorPrimary">@android:color/primary_text_light</item>
+        <item name="android:background">#FFFFFF</item>
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">

@@ -39,6 +39,7 @@
         </android.support.design.widget.CoordinatorLayout>
 
         <include layout="@layout/toolbar" />
+
     </RelativeLayout>
 
     <android.support.design.widget.NavigationView

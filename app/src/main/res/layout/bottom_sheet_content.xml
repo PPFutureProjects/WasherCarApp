@@ -68,11 +68,6 @@
                 android:orientation="horizontal"
                 android:layout_gravity="center">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@mipmap/ic_status_free"/>
-
                 <TextView
                     android:id="@+id/washer_status_text"
                     android:layout_width="wrap_content"
@@ -168,7 +163,7 @@
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:clickable="true"
-        android:src="@mipmap/ic_schedule"
+        android:src="@drawable/ic_action_shcedule"
         android:visibility="visible" />
 
 

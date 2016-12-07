@@ -13,31 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <LinearLayout
-        android:id="@+id/loading_washers_indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="#66ffffff"
-        android:orientation="horizontal"
-        android:padding="6dp">
-
-        <ProgressBar
-            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:indeterminate="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Loading" />
-    </LinearLayout>
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_get_direction"
         android:layout_centerVertical="true"
@@ -57,5 +32,31 @@
         android:layout_alignLeft="@+id/fab_get_direction"
         android:layout_alignStart="@+id/fab_get_direction" />
 
+    <LinearLayout
+        android:id="@+id/loading_washers_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="#66ffffff"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:padding="6dp">
+
+        <ProgressBar
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:indeterminate="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Loading" />
+    </LinearLayout>
 
 </RelativeLayout>
