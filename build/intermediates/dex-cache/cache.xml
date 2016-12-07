@@ -520,7 +520,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="0129190a07d8c8c1afaff77a8dbeb9699684d56e">
+        sha1="2d1a8ecc52254c2bd711c1d072d980ca6bd3925d">
         <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_2303af31d2abd1fe7803cfe698c7f5742bc68609\classes.dex" />
     </item>
     <item
