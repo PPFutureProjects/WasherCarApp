@@ -301,6 +301,7 @@ public class WashersFragment extends Fragment implements OnMapReadyCallback,
         //Adding listeners for bottom sheet views
         rootView.findViewById(R.id.bottom_sheet_title).setOnClickListener(this);
         rootView.findViewById(R.id.bottom_sheet_order_fab).setOnClickListener(this);
+
         return rootView;
     }
 

@@ -13,6 +13,11 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:icon="@drawable/car_wash_icon"
         android:label="@string/app_name"
@@ -35,20 +40,19 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/. 
         -->
+
+        <activity
+            android:name=".Activities.MainActivity"
+            android:theme="@style/MyTheme"></activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".Activities.WashersActivity"
-            android:label="@string/title_activity_washers_map"
-            android:screenOrientation="portrait"
-            android:theme="@style/MyTheme.Detail" />
-        <activity android:name=".Activities.CarSelectActivity" />
-        <activity
-            android:name=".Activities.MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/MyTheme"></activity>
+            android:name=".Activities.LoginActivity"
+            android:theme="@style/NoActionBar"
+            android:label="@string/title_activity_login" />
     </application>
 
 </manifest>

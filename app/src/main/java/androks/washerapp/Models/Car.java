@@ -5,58 +5,42 @@ package androks.washerapp.Models;
  */
 
 public class Car {
-    private String id;
-    private String uid;
     private String model;
-    private String type;
-    private String mark;
+    private String maker;
+    private String serialNumber;
 
     public  Car (){}
-    public Car(String id, String uid, String model, String type, String mark) {
-        this.id = id;
-        this.uid = uid;
+    public Car( String model, String maker, String serialNum) {
         this.model = model;
-        this.type = type;
-        this.mark = mark;
+        this.maker = maker;
+        this.serialNumber = serialNum;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setMark(String mark) {
-        this.mark = mark;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setMaker(String maker) {
+        this.maker = maker;
     }
 
     public void setModel(String model) {
         this.model = model;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getMark() {
-        return mark;
-    }
-
-    public String getType() {
-        return type;
+    public String getMaker() {
+        return maker;
     }
 
     public String getModel() {
         return model;
     }
 
-    public String getUid() {
-        return uid;
+    public String getSerialNumber() {
+        return serialNumber;
+    }
+
+    public void setSerialNumber(String serialNumber) {
+        this.serialNumber = serialNumber;
+    }
+    @Override
+    public String toString() {
+        return getMaker() + " " + getModel() + "\n" + getSerialNumber();
     }
 }

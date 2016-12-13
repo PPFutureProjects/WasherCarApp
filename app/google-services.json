@@ -15,17 +15,21 @@
       },
       "oauth_client": [
         {
-          "client_id": "280500118687-4ofgful6svc6iuo32mnl25vv7rctqv6q.apps.googleusercontent.com",
+          "client_id": "280500118687-u0jfbg2va28ubo7e597vbuf4ikr2qqfp.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "androks.washerapp",
             "certificate_hash": "0C2B1D81C612461EC7B0751B115B7A2BD1DE0CCD"
           }
+        },
+        {
+          "client_id": "280500118687-in5den2fjtoeo2rt0bk967ib8vpskd3h.apps.googleusercontent.com",
+          "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCo1UuXw1ajyFjF1-RSxV2I4iBKEhCqQ3I"
+          "current_key": "AIzaSyAyrGi5JCz7Ld2WP7Nrmw4Rf8MaRit4yPw"
         }
       ],
       "services": {
@@ -34,7 +38,12 @@
         },
         "appinvite_service": {
           "status": 2,
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "280500118687-in5den2fjtoeo2rt0bk967ib8vpskd3h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

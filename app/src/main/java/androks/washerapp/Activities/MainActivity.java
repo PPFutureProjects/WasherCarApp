@@ -20,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androks.washerapp.Fragments.CarsFragment;
 import androks.washerapp.Fragments.WashersFragment;
 import androks.washerapp.R;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private BroadcastReceiver mInternetReceiver;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,12 +82,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
+        
         if (id == R.id.action_settings) {
             return true;
         }
@@ -102,21 +100,22 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_map) {
             fragmentClass = WashersFragment.class;
-        }
+        } else if(id == R.id.nav_cars)
+            fragmentClass = CarsFragment.class;
 
         try {
             if (fragmentClass != null) fragment = (Fragment) fragmentClass.newInstance();
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.content_main, fragment).commit();
+
         item.setChecked(true);
         setTitle(item.getTitle());
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
