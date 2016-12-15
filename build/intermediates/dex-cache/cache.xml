@@ -3,444 +3,480 @@
 
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.0.1_098f5df5e7f0f7ad25bd394420ee6c9bb047d692\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.0.1_669f5a99049806499ccd87b918b50c98f964060a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\transition\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c1b6ab157e8e12cb08b9ee82bb5e3c5d22632eb3">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.0.1_9eed1a7e24cc348f8d88ab79efd4c088520217d3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="03df48d3713661d66ad024b1e406259a4c26fcac">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-9.8.0_533f89f46cfc1aca09c8cb35f32a177d7f19c98a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.0.1_8c60cfe24867df12b270f8a4ab444e27a995d521\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.1\jars\libs\internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_84c7dd4a4d95b638ae6e710c6cfdd5c39fc7336e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="055eed08c9cff50cac0db69c74c4d9ff7aef3d84">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-9.8.0_c4c596696ad47cea573bfe3939be60c05d8210c7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.1\jars\libs\internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_ffa57fcfc40b000b87a6fd36db3d0d518cd1d3b6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="266570862e5792ef3c51143a8b8593cf54fac68d">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-9.8.0_c35661854ad08df4942ad543f2b512a68a8a1f5f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="190a642ba16d1421296a4d794606279b80039c59">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-9.8.0_5ea81ddc91efa12dcf9cd4c2d80c7f53e94b3838\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="50e35ae101a679c4c8ef3dda075b1df9d5d947d9">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-9.8.0_afd8d5572b84ea44c99d9b755fa8d531fd206a8b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.0.1\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.0.1_29cb8568cb1e42b83120172f2ce07bb327bbdcb5\classes.dex" />
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-25.0.1_1b4212e800d3a9cf25723c5fc9d8e5c15d45eab4\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.firebaseui\firebase-ui-database\1.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="a7a04d6b7c01e569a285fa627cf64f5b05295906">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-9.8.0_ba83112fd68ed765a9e33e7ed1d2296f615f966a\classes.dex" />
+        sha1="b0b0f4f99cf68e748dd123ad553738e4284d4749">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.firebaseui-firebase-ui-database-1.0.1_03c0d5ab112995c8caa8ef0860123a428dacd5fc\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="6b6f292b8b951dcf2ecf2b20853e3eabc7d65c48">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-9.8.0_4202114761c2022e582913ef8e175f5173ec22b3\classes.dex" />
+        sha1="771267c5b0c7a5b348d3205dcfa1f871af7e0177">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-10.0.1_a4764dad1a16fbeb9b843d93054cea0e508213d0\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="0b53c4b90654b67ee3892a8e2e7b819c083ab7a6">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-9.8.0_29d926ab8e01e44f22ea62fd1955bb88ac6b9d63\classes.dex" />
+        sha1="c6e1f361e9d61aece9dac39b77fcc98a337a144d">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-10.0.1_07a5ddbae35c11e269c8d3fcddab0d82b1011e4e\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="363a20f1d25336e827dd24020f2ecdc42d62638f">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-9.8.0_b2afe09a04459ccc7eb5f093367ae311f1b34d68\classes.dex" />
+        sha1="f3e51e9c5233b8897f61e08a6a27bc36283c2724">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-10.0.1_88e5af110d684fe9ddf2aea3ddf9f5ca9ed99c61\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.1\jars\libs\internal_impl-25.0.1.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_59786c889395d9af40d818dfbc49eefd9945ca12\classes.dex" />
+        sha1="4b17463c814bdc562fb0392fa3494063623a0904">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-10.0.1_0e715f1822994030f70a01c41ac1dbc41ce5d8e1\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.1\jars\libs\internal_impl-25.0.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="238f0b10a4d69a875601d7804a181339e32ff00d">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_d5676bbb342380dc0305a71b73fbcb5e4b583175\classes.dex" />
+        sha1="f83b00041ecfba705603fec40363416c7de69719">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_3d9481be9cc53fc56c3ea6919b0650e8694d9094\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jar="C:\Users\androks\.gradle\caches\modules-2\files-2.1\com.firebase\tubesock\0.0.12\6ec0bbd3e161a73ed672284b587fd32309a86d7a\tubesock-0.0.12.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_83d6ff1db33d7645f32ee235d093e9e6a8f0df4e\classes.dex" />
+        sha1="6ec0bbd3e161a73ed672284b587fd32309a86d7a">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\tubesock-0.0.12_51d2b4ea8e3c2555875feae4151a56fe6d54961a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-9.8.0_d0fe46fd7a23557eb6e9c20f3099541da506d65f\classes.dex" />
+        sha1="d0460bf07cc3657e0be518ca01c174493951c6b8">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-10.0.1_93e19bffd85506de61b0d5eb11f378dea991153d\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="e9b2cfdfd59b03643f1e240668275378b96615a8">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-9.8.0_b8f1f68d9eaa80fd86a129a4771e3a6816a0f6e7\classes.dex" />
+        sha1="408a599ac77cd17fe8e8919326bec617b3d005bd">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-10.0.1_2cce87a55dbbc35e5537203ed9be2f1203ac2c5a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="c81df6bd515398ebe45089b0b16c55752a131f6a">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-nearby-9.8.0_4f4506e713046680a5fa9285fa342379b1e729a3\classes.dex" />
+        sha1="92c871a22463a247e8a77a9f3fd231c278788c4a">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-10.0.1_01924f5e31b94158fda1502e2966030904417c63\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\9.8.0\jars\classes.jar"
+        jar="C:\Users\androks\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-annotations\2.2.2\285cb9c666f0f0f3dd8a1be04e1f457eb7b15113\jackson-annotations-2.2.2.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="c61641e333fa88da21758bab8cc28ee16604b05f">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-9.8.0_49915be7e42795478ccbdb0ad497aae0192eee7e\classes.dex" />
+        sha1="285cb9c666f0f0f3dd8a1be04e1f457eb7b15113">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-annotations-2.2.2_43e521de59fb757b151d88ed5b8ee01e283c9b6b\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="ca851be26ff89f5b32cc222cee98139fb3fac830">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-9.8.0_1ed1ef6d39c1183abe816867b14fdd76168bcdd3\classes.dex" />
+        sha1="ffc15e965a9e8c28f24455eedd4cac215c45d1fc">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-10.0.1_5e1d177d4a64729a777270712130be075c75f34b\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.github.pinball83\masked-edittext\1.0.3\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="3daa7a9c9009fd386872a84c177a76979bdcafd6">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-9.8.0_d9ff66dc3132a0ca3240f191a8302b024cc9c6c0\classes.dex" />
+        sha1="86b0dfbd52c89f01fd58aa853cca6e81614d6374">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.pinball83-masked-edittext-1.0.3_b8bf57a5465c2a4b0020c34d871bd2d7f743e1d2\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-module\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="3f8f779a22cbb4c4d0759467a4f1011bb5252970">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-module-9.8.0_e31b8f392be7b42e12c2ed4650d133f108e08c7f\classes.dex" />
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-10.0.1_7bab71f895198437265b9992718efab556bd8216\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="7e92aadd0697922316d1395c1887a23aebec640a">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-9.8.0_7d0813c4cfd76d576d0b17857570d8c231349630\classes.dex" />
+        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-media-compat-25.0.1_b337cb67aada10eae206ae370db6ffb25bc739a8\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\9.8.0\jars\classes.jar"
+        jar="C:\Users\androks\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.2.2\d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b\jackson-core-2.2.2.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="e3234cd25e23069abd48ecd2117bc0e8011bf45a">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appindexing-9.8.0_d0d40a3c26f92767253279f951d09500b821fc93\classes.dex" />
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-core-2.2.2_549a70c1d5756c81c1ee4270fd6d88a268070ea4\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="85299bf1924dde0200109a58033c5ef84ecb6991">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-9.8.0_416ed363661139cb18631239a63eb587bd3409ab\classes.dex" />
+        sha1="6bb5d347ebc0c6ef3c83a905222a688da5d2f7b4">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-iid-10.0.1_9959d74bc1ba77610611fb8cdd3afbb40cf25157\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="7fd91ec2730fdaa82906aad32a3f3d3e574bae56">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-9.8.0_8d1f00709bccf6cabdb85996360d014dcc5104e7\classes.dex" />
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.0.1_2d599f55018886ec318de14ddbe071c6636c71b1\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="a1ed98e01bd58976d80c062fd0ea2968a1ff68a1">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-9.8.0_6f0f0aff3995e8dc8d7c1e7cb3222469a565c231\classes.dex" />
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.0.1_f9b04bbfeec4ce759db6b9718037eb746bcc3596\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="ee5304fd374e0b4ebf6b42d4037fbfb2c5336511">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-9.8.0_a0b1ae1fb802180de3e0f1b0dabfd8aba800c41d\classes.dex" />
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.0.1_18080173af073756bac1a564fd511bfc42f733be\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\9.8.0\jars\classes.jar"
+        jar="C:\Users\androks\.gradle\caches\modules-2\files-2.1\com.firebase\firebase-client-android\2.5.2\f19f10d6276aa0b380e2d05d2ab3272d693a5433\firebase-client-android-2.5.2.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="04bbbddf868aa02dd33f9e90d8f5d908c360f638">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-9.8.0_a7dad8a17f6567377d0d2295f5a7cc77ca9b84cf\classes.dex" />
+        sha1="f19f10d6276aa0b380e2d05d2ab3272d693a5433">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\firebase-client-android-2.5.2_4d0cb1d37a5af817027c7cf082d7d07468fa3119\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-clearcut\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="74ac7cbcf0de4a88e59612dc3a9e3f9e71acb4ca">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-9.8.0_d8b19719e15b62c415873411099c9fba6e4d27f5\classes.dex" />
+        sha1="1d193729baf37df3d902a423291423a0df7e3779">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-clearcut-10.0.1_2e599d4ad9f71b1700ff84c1c9175d4c6990af24\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.0.1\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c14f0c89f28cf782e42581ab0aba5f63af39b3d2">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-plus-10.0.1_e86fbc50c9eddd5c88de1cd7d9d7ed69e05098ab\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f6cf557be4dbd0282ea2388633e5378634423226">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-10.0.1_660351a54839424ae77b61c7b27956f9a045f46a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.maps.android\android-maps-utils\0.4.4\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6f57b76211a1d7b0c1f18873af59faad95664681">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.maps.android-android-maps-utils-0.4.4_cbf36129b8622793bfb7371c6e8656b029ce8d6b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads-lite\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b955cb3a1ad6f1b6ff728ce1e0cd592c1717b440">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-lite-10.0.1_23b148b01068c0306b7cbc1db1e71d968b585902\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\androks\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-databind\2.2.2\3c8f6018eaa72d43b261181e801e6f8676c16ef6\jackson-databind-2.2.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3c8f6018eaa72d43b261181e801e6f8676c16ef6">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-databind-2.2.2_ca791e94818b56292d49a0809ed306e98e22c1bb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-appindexing\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ae80d328a8548b4610ead6c624bab8c6a6984f5b">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-appindexing-10.0.1_51924f785e8212d6f5dfddb5f834aeff672a1823\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="297d4bcf6ed4e747a1bf7d0d094a2d911a8d3a8e">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.0.1_05f451eb636ed00d6aba4aa782f816994b2be387\classes.dex" />
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-25.0.1_ebe889f9b8c827b1a4a433cc72c9d5fe5edf9cf3\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="5ffe8867f51cfc726e9fb21db1e5b6962ebf25a0">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-messaging-9.8.0_87e2cce480fde0af11afa8af941acb1cdce5fdb0\classes.dex" />
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-impl-10.0.1_ce89392dd3aa5ed7b9b81e6c05097719c9e109a0\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth-base\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="f2d240dd085626f03f759c41d628a0c8b63e491f">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-ads-9.8.0_161abf506a1f4c289b43696f2f3ecd113fb8f5ac\classes.dex" />
+        sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-base-10.0.1_b741140f39607211b27b4641e99f215665c8d116\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-config\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.1\jars\libs\internal_impl-25.0.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="289cad663c288ce965463cb9ece8b35cc7de0fac">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-config-9.8.0_6249c1e32c4e8786737fd518251dbe5c71699117\classes.dex" />
+        sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_9a2f06cc3071253d27d28a00ecd18c66ff84b7dc\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="e56f31b23ddb067f95f01255295167db7c798612">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-9.8.0_88947d8ce0e048e958bd112073185bf7173d60e1\classes.dex" />
+        sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-auth-10.0.1_ce318721f8dbf50d2a93d6f8739af230147ee421\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="9ff04cc3470178a44512624036751a803418c2ca">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-9.8.0_9cc0f69bb5453a0120e9ff25d8abd1192708ebdf\classes.dex" />
+        sha1="7a64bf6dc775198eed9db9468a133adf7dfe6562">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-fitness-10.0.1_49cd42e937646d2ef3e966a3a82c9b7de5cd15c1\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.1\jars\libs\internal_impl-25.0.1.jar"
+        jar="C:\Users\androks\.gradle\caches\modules-2\files-2.1\com.firebase\firebase-client-jvm\2.5.2\91731b8f5868a3e8a8a773f29b8d06b5c358f5bb\firebase-client-jvm-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="91731b8f5868a3e8a8a773f29b8d06b5c358f5bb">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\firebase-client-jvm-2.5.2_4bb36ca693dab4cd74f98561717ca29c8d09c8ba\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gass\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="57c2eceb8548de84509d1ebc293fedec53231f6c">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gass-10.0.1_a07a850ada9669ceee535f9efee077fac417a819\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.0.1_90d8efcea4a59aea60b8b73be4c99b7fa295f031\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-24.0.0_82a0a8f6fbe9a3d1a37109ce2e29cf9573ad7781\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.1\jars\libs\internal_impl-25.0.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_dac46702b8d56142d4db8a00a22b4941f01d966f\classes.dex" />
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_c4efef829c606bab48dd8f55f59e7e376909db5a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.0.1\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.0.1_96b1b11a554bfe49f7074650f1d578bebf1cc77e\classes.dex" />
+        sha1="27777b3cad3c20b1acab19f6e37fe3e03371bf6e">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-10.0.1_300b312185fa27d43b22433928c73c7f5bede353\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-awareness\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="a2537b11ae24b42172d34e2a613fc0b903c56158">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-awareness-9.8.0_3379136d66106bd7417fdad7f2048cf591325741\classes.dex" />
+        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-ui-25.0.1_3c95e3ae84563faa37901b7173b6e654403f4657\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\transition\25.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="bf2e1838e4428616c1aa26edf43de72b5b99bf84">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-9.8.0_f9b2fd74d8397512174b2c04008984f5cb6f5e7b\classes.dex" />
+        sha1="c1b6ab157e8e12cb08b9ee82bb5e3c5d22632eb3">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-transition-25.0.1_5110d95e2751295878ca1a9af66c11acdf940c86\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\libs\internal_impl-24.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="2d3035050a075484cbf2e33f1ce1f779bae4d451">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-panorama-9.8.0_16932b890c8cfc913f40e5968161f482ddab3c2d\classes.dex" />
+        sha1="b6763651ec29b4c95e7bbe63fc393ffcc8c4c2c5">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_b6393fd17c0a9acf4789d73ca42c2dc26feef562\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="20a3c4e355150c15c13dd58045d43ad0c717d916">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-safetynet-9.8.0_c6efa06baf9e7cf7d080e604edc88d71bc702d19\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="16afe57c1d7f8165d107c7806ce7b0c71de87159">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-9.8.0_9d71281d155115e209e9e5ec232716394ace1091\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\design\25.0.1\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\design\25.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="3b236883e0df6002cabb01ce57d00a5b1e5de610">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.0.1_59ac3999779d0beb3960719586f1e0ff2ff78ca4\classes.dex" />
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-25.0.1_4fe4c01e519d7d0c2743b718e22dda62a5949395\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="122ec9237acd8a57d974b9d529987f1ee6ca5aea">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-maps-9.8.0_9448b6903a3f48407695fa72d25d61ec69ce7766\classes.dex" />
+        sha1="028f8255cb977b29cdffbfcf05caa0459686120c">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-drive-10.0.1_015887a415afd7487f22d8c8bfbd712bea6f7b22\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tasks-10.0.1_d7b6a8b4f1973cb759c0a51f7adfcd11b7f35a6d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast-framework\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="df1cb17511aabbb63264a0024949d1e42502a512">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-cast-framework-10.0.1_aad8a063fa8be8fb5e2bd82d30d99f312e50653e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-analytics-10.0.1_25f5345e68d399d816d16a361f81b56a1e3f6392\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="44a694d4095be84c2888764b1f7256b385c030ad">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-10.0.1_98023b796772dc96defc9aaa0e4263c554c3789e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1e11c68fec92a17c84dd8d1dd80e74c4e67b12e2">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-10.0.1_14583a973f7ff88007e7ae1b4b131431aaf53729\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8aa314914ede68deb3339b21bad9bce99efaa1c4">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_91617c2a7b1d2d358dd5b3425949670522cfa524\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-common\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-common-10.0.1_08d35f369edfc603cd293eee93dcb7f9c6182291\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -449,223 +485,259 @@
         optimize="true"
         revision="25.0.0"
         sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.0.1_ed8e5c786816bf320ab3ac4f864ee03e81125f0c\classes.dex" />
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.0.1_ed8e5c786816bf320ab3ac4f864ee03e81125f0c\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics-impl\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="a30aea7df545072ad3c06f56b2efc13e67222140">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-9.8.0_910c1d32aed605a5a628ab5c04399e22a1964a31\classes.dex" />
+        sha1="e871881b36b32e6bfd271a830c6eeb54ff0fc185">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-impl-10.0.1_0266c9221f7fea7e0c888a618cd42d736c3f9a30\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="ec9104b53aee77dfcfd2fe1c4add23ff7c4df55f">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-9.8.0_f574efc2c0e39e1cb98f44b025415c4f0186b342\classes.dex" />
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-base-10.0.1_91162c270cfcaa31ceb664a7badc9c3338c7be91\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\9.8.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="00d358528c5a8731a6e19bca910cbb3fd755ee31">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-9.8.0_186ed1eddeaa33366b7901924a69bc74f9e0d624\classes.dex" />
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-basement-10.0.1_b23c821a0234bf62d1f27768547e29ec16e1ac18\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\de.keyboardsurfer.android.widget\crouton\1.8.5\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="b81c788c5f175f94ddaac2f65e5d1726371e0963">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\de.keyboardsurfer.android.widget-crouton-1.8.5_3829e8d49d31669bbb64f46a124c5b4b84df0a0f\classes.dex" />
+        sha1="09cf6aa1390f95157e8295d02be7868f568825fc">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-common-10.0.1_f3633716a412eab306b6dfea369a0bade85be748\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.0.1\jars\libs\internal_impl-25.0.1.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="f83b00041ecfba705603fec40363416c7de69719">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_e74f1dc45bf49309bb390cd6eface8337c1f72d9\classes.dex" />
+        sha1="8308ed003522a2ee8958311afcc4cfd0470377cd">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-10.0.1_3ed670646617dfc9132a753841ee35770b63e0fd\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="910c013c511f752c4bbe24c5f492f669f4a3ccc0">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-9.8.0_08750e8fddc6c2a2197ba5cc38aa5a6d57b2cc48\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.maps.android\android-maps-utils\0.4.4\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6f57b76211a1d7b0c1f18873af59faad95664681">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.maps.android-android-maps-utils-0.4.4_a4d0ad536bf13c665d565c20fe3872485ecff770\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="2d1a8ecc52254c2bd711c1d072d980ca6bd3925d">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_2303af31d2abd1fe7803cfe698c7f5742bc68609\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0b8e087da59c0b062c33f49a335e59f907086da2">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wearable-9.8.0_707dd367ae4469200cf78b895601b99d05f817bf\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-25.0.1_c8928dada571c46f85c113012e77adf1bd1a7ce7\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="679251204de40ace98776a6f4e3a649c27e3d89f">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-places-9.8.0_07bf46ee82eac7e1493b85a3f6e08cad783286ab\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.0.1_9cb90dae2ff482cd9f284dca2d1dac8804be82c6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="15e59454416c6341bd3ed2533b585cd340682dd1">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-9.8.0_8d1d7640f7e97d17f85d3515c0318de9d2906251\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="cef85cfc7df40e29fbea58844dd4c1e7d0b15542">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-9.8.0_70c3793060b83484e2fbde4f8c78abc38ea4a91e\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9dae58326f6f6a515022468cce56dd04ec3b9fdb">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-gcm-9.8.0_b9b384aa3f314b3bd51d1c7c559270c0ad7b0dd6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="5f47ede9561595584dca71104baa0fecb36dda87">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-9.8.0_8732208c735eef1464a3e46ee6eee086d971b486\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="b4671be3d1288bf4e5f527cd33e42909fbe4ecc6">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-9.8.0_628c8ab9e114b9d6faef73043e5c81da81315360\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.0.1_b4f7f4e907711498293bb142c352bc5009b674b5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\24.0.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="b327fbe2fad414bc38cf0ce8f7efe1a38f572837">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-mediarouter-v7-24.0.0_28a674544331bb6a607fa309daf0bf1622645c4f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="a972970c8beddb69c198f61f3fc55f0606a7dfe3">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-9.8.0_39b6984dd47172122549da546bafeab181450e80\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth-common\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="4438b1a7848a7c571122ba618aa1304514aabee6">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-common-9.8.0_9676b34ab4143177e3a3a261db16f1edf9b5fea2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\9.8.0\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fbb3885c40e431cd2b0dc69c0cab2bf6d5da7b43">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-games-9.8.0_00ffec5aef9d91aaf757d3d81b82346bffd70a24\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.0.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-25.0.1_89314bde9bbdf5b7dd0195674590d8d5704816b5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\palette-v7\24.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="734e80dffea7bd76c18ae256822a124c30d85850">
-        <dex dex="B:\Projects\Android_Studio\WasherApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_bb7a26dca87213f717e9f2e3a4b598bfade5169f\classes.dex" />
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-palette-v7-24.0.0_6566c468b061bdac7a75a63356ccd1fb1b7fae39\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-instantapps\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="45305e6af414dab5aba6c3225081c2f15c3bdd1e">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-instantapps-10.0.1_8010365c5d1338a1c7171702fc012fa6be0a6244\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="2d5d113b0352ab60946fc44c518cf68fd26cbb79">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-wallet-10.0.1_c4287e0b3e680375adc4d4b79694d7ce277ac4c6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-auth\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-auth-10.0.1_c9af7a976fd2647625b844058f240c57930666af\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-core-utils-25.0.1_4e8b6316008b1af0e3310b4c3da926078e0a977a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.0.1\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_dca0144c534fb72ea14d390faf969a091e05e9c0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="39907d5c8f5902fffef30160ca7447c93b82405c">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-appinvite-10.0.1_35255fcec066aed0ebaaa9a2a487ac6c95c69ae4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-compat-25.0.1_f242ad42dcf8d605c273fb01ecf14685683ee15e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-fragment-25.0.1_e06e34e80e8d586029e65a6586d0c6f1d1e41943\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\de.keyboardsurfer.android.widget\crouton\1.8.5\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b81c788c5f175f94ddaac2f65e5d1726371e0963">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\de.keyboardsurfer.android.widget-crouton-1.8.5_e74cb6dce48e1d11254d831f70b34e229398f518\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a48dc0b148059764d32500be558702d5ff932058">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-identity-10.0.1_e97c5f6f5d55ee4bad0920322e712361b1873870\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-v4-impl\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f23ad0f8e58713ff4b55f61c0bbde3830378347c">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-v4-impl-10.0.1_68c5d4a4c90b77644ccddb9fa78edcbdfda4390a\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="dd39827d2067497e60e21da48a7926000b6d4b0c">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-storage-10.0.1_b671af7fe08a07551311dcae5d7e0affb24a1b83\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-awareness\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4385ccc0a88b33d182a836eadb47be55c8eb1107">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-awareness-10.0.1_889ca9004fcda457ea27afe4c9e9bf1e82518fa4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\androks\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.6.2\f1bc476cc167b18e66c297df599b2377131a8947\gson-2.6.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f1bc476cc167b18e66c297df599b2377131a8947">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.6.2_c326b00bcef7a65e4aaa07d815e6b023133475c5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f6e24490b52a635fe1116a74a8825287111d7c89">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_abc8a88603b55d40ce421e98411891b8e5ee572c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager-api\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b1df8fa3d372a27e4e969ce00b00689ee1eed031">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-api-10.0.1_bf9a9d198fa0a7d55318c6ded17ccfd3eb27157f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-crash\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="de29a39f9260f88151b1ef453140e71c76b6c415">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-crash-10.0.1_29d907af296455b64b12b3663a020425d8cf22c3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4c829ff0ccfecb28a999ee46d9e75948dfc777a4">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-analytics-10.0.1_5deca0f5d0b892a3b58527e82ac3064b10b6d9fb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-25.0.1_de677ba1cfe1d0c6bd64efec375d85b5a4b236bf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tagmanager\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="971509bbe30bb7b971fc1c49d7b23d0d818830ac">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-tagmanager-10.0.1_726a3c83cd737b334337aac6a93169aac32161e2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ba6aa5e69ef31dee57208125323cee958fc67565">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-vision-10.0.1_2286498802f623342ad6e7050049ddfb200d741b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.0.1\jars\libs\internal_impl-25.0.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-25.0.1_69236302bbae022e181e7780efa470f0b1f4f9c7\classes.dex" />
     </item>
 
 </items>

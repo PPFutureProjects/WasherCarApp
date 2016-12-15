@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,7 +29,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import androks.washerapp.Models.User;
 import androks.washerapp.R;
 
 /**
@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
     private View mPhoneForm;
     private View mTryAgainForm;
     private String mCurrentUserId;
-    private User mCurrentUser;
+    private FirebaseUser mCurrentUser;
 
 
     private boolean isRegistrationSuccess;
@@ -128,20 +128,18 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-
                         if (!task.isSuccessful()) {
                             mTryAgainForm.setVisibility(View.VISIBLE);
                         }else{
+                            mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
                             DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference().child("users");
                             rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(DataSnapshot snapshot) {
-                                    if (snapshot.hasChild(acct.getId())) {
+                                    if (snapshot.hasChild(mCurrentUser.getUid())) {
                                         userLoggedIn();
                                     }else{
                                         mPhoneForm.setVisibility(View.VISIBLE);
-                                        mCurrentUserId = acct.getId();
-                                        mCurrentUser = new User(acct.getEmail());
                                     }
                                 }
 
@@ -203,8 +201,16 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
     }
 
     private void writeUserToDB() {
-        mCurrentUser.setPhone(mPhoneView.getText().toString());
-        FirebaseDatabase.getInstance().getReference().child("users").child(mCurrentUserId).setValue(mCurrentUser);
+        FirebaseDatabase.getInstance().getReference()
+                .child("users")
+                .child(mCurrentUser.getUid())
+                .child("email")
+                .setValue(mCurrentUser.getEmail());
+        FirebaseDatabase.getInstance().getReference()
+                .child("users")
+                .child(mCurrentUser.getUid())
+                .child("phone")
+                .setValue(mPhoneView.getText().toString());
     }
 
     @Override

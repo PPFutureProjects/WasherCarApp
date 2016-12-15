@@ -4,20 +4,19 @@ import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.AppCompatDialogFragment;
-import android.view.KeyEvent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,7 +34,7 @@ import androks.washerapp.R;
  * Created by androks on 12/11/2016.
  */
 
-public class AddCarDialog extends AppCompatDialogFragment implements TextView.OnEditorActionListener, View.OnClickListener{
+public class AddCarDialog extends AppCompatDialogFragment implements  View.OnClickListener{
 
     public interface AddCarDialogListener {
         void onItemAdded(Car car);
@@ -67,8 +66,8 @@ public class AddCarDialog extends AppCompatDialogFragment implements TextView.On
         mCarNumber = (EditText) view.findViewById(R.id.car_number);
         mCarMaker = (AutoCompleteTextView) view.findViewById(R.id.car_maker);
         mCarModel = (AutoCompleteTextView) view.findViewById(R.id.car_model);
-        mCarMaker.setThreshold(1);
-        mCarModel.setThreshold(1);
+        mCarMaker.setThreshold(0);
+        mCarModel.setThreshold(0);
         mAddCarForm = view.findViewById(R.id.add_car_form);
         mProgressBar = view.findViewById(R.id.loading_car_lists);
         mConfirmButton = (Button) view.findViewById(R.id.car_confirm);
@@ -118,14 +117,23 @@ public class AddCarDialog extends AppCompatDialogFragment implements TextView.On
             }
         });
 
-        mCarNumber.setOnKeyListener(new View.OnKeyListener() {
+        mCarNumber.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                if(mCarNumber.getText().toString().length() > 4)
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(editable.length()>4)
                     mConfirmButton.setEnabled(true);
                 else
                     mConfirmButton.setEnabled(false);
-                return false;
             }
         });
 
@@ -165,7 +173,6 @@ public class AddCarDialog extends AppCompatDialogFragment implements TextView.On
         mCarMaker.requestFocus();
         getDialog().getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-        mCarNumber.setOnEditorActionListener(this);
 
         return view;
     }
@@ -177,25 +184,15 @@ public class AddCarDialog extends AppCompatDialogFragment implements TextView.On
     }
 
     @Override
-    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-        if (EditorInfo.IME_ACTION_DONE == actionId) {
-            // Return input text to activity
-            ( (AddCarDialogListener) getTargetFragment() ).onItemAdded(new Car(
-                    mCarMaker.getText().toString(),
-                    mCarModel.getText().toString(),
-                    mCarNumber.getText().toString()
-            ));
-            this.dismiss();
-            return true;
-        }
-        return false;
-    }
-
-    @Override
     public void onClick(View view) {
+
+        //First letter of maker to uppercase
+        String maker = String.valueOf(mCarMaker.getText().toString().toUpperCase().charAt(0));
+        maker += mCarMaker.getText().toString().substring(1, mCarMaker.getText().length());
+
         // Return input text to activity
         ( (AddCarDialogListener) getTargetFragment() ).onItemAdded(new Car(
-                mCarMaker.getText().toString(),
+                maker,
                 mCarModel.getText().toString(),
                 mCarNumber.getText().toString().toUpperCase()
         ));

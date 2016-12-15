@@ -3,9 +3,9 @@
     android:id="@+id/main_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/activity_padding"
     android:background="@color/bd_white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/activity_padding">
 
     <ListView
         android:id="@+id/cars_list_view"
@@ -13,23 +13,32 @@
         android:layout_height="match_parent"
         android:clipToPadding="false" />
 
+    <TextView
+        android:id="@+id/no_cars_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="You have no cars yet. Please, add by clicking add button below"
+        android:textAlignment="center"
+        android:visibility="invisible" />
+
     <ProgressBar
+        android:id="@+id/loading_cars_indicator"
         style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:visibility="visible"
-        tools:visibility="gone"
-        android:id="@+id/loading_cars_indicator" />
+        tools:visibility="gone" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/add_car_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:layout_margin="16dp"
         android:clickable="true"
         android:src="@drawable/ic_action_add"
         android:visibility="visible" />

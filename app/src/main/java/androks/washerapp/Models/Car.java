@@ -5,12 +5,14 @@ package androks.washerapp.Models;
  */
 
 public class Car {
+    private String id;
+
     private String model;
     private String maker;
     private String serialNumber;
 
     public  Car (){}
-    public Car( String model, String maker, String serialNum) {
+    public Car(String maker, String model, String serialNum) {
         this.model = model;
         this.maker = maker;
         this.serialNumber = serialNum;
@@ -39,6 +41,15 @@ public class Car {
     public void setSerialNumber(String serialNumber) {
         this.serialNumber = serialNumber;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
         return getMaker() + " " + getModel() + "\n" + getSerialNumber();
