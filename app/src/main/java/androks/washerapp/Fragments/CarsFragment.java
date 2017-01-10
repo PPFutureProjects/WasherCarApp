@@ -1,6 +1,7 @@
 package androks.washerapp.Fragments;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -50,7 +51,6 @@ public class CarsFragment extends BaseFragment implements AddCarDialog.AddCarDia
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_cars, container, false);
-
         mCarsListView = (ListView) rootView.findViewById(R.id.cars_list_view);
         mNoCarsText = rootView.findViewById(R.id.no_cars_text);
         mProgressBar = (ProgressBar) rootView.findViewById(R.id.loading_cars_indicator);
@@ -133,6 +133,11 @@ public class CarsFragment extends BaseFragment implements AddCarDialog.AddCarDia
         mCurrentUserRef.child("cars").child(key).setValue(car);
         mCurrentUserRef.child("current-car").setValue(key);
         updateCurrentCar();
+        if(getActivity().getCallingActivity() != null) {
+            Intent intent = new Intent();
+            getActivity().setResult(Activity.RESULT_OK, intent);
+            getActivity().finish();
+        }
     }
 
     @Override
@@ -149,5 +154,15 @@ public class CarsFragment extends BaseFragment implements AddCarDialog.AddCarDia
         if(car != null )
             mCurrentUserRef.child("current-car").setValue(car.getId());
         super.onPause();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if(getActivity().getCallingActivity() != null) {
+            Intent intent = new Intent();
+            getActivity().setResult(Activity.RESULT_CANCELED, intent);
+            getActivity().finish();
+        }
     }
 }

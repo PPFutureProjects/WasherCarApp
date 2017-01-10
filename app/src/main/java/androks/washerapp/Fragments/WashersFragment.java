@@ -16,6 +16,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,8 +57,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import androks.washerapp.Activities.LoginActivity;
 import androks.washerapp.Models.DirectionFinder;
 import androks.washerapp.Models.DirectionFinderListener;
+import androks.washerapp.Models.Order;
+import androks.washerapp.Models.OrderDialog;
 import androks.washerapp.Models.Route;
 import androks.washerapp.Models.Washer;
 import androks.washerapp.R;
@@ -66,7 +70,7 @@ import androks.washerapp.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WashersFragment extends Fragment implements OnMapReadyCallback,
+public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
         GoogleMap.OnMarkerClickListener,
         View.OnClickListener,
         GoogleMap.OnMapClickListener,
@@ -74,9 +78,11 @@ public class WashersFragment extends Fragment implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener,
-        ResultCallback<LocationSettingsResult> {
+        ResultCallback<LocationSettingsResult>,
+        OrderDialog.OrderToWashListener {
 
 
+    private static final int SIGN_IN = 9001;
     private FragmentActivity mContext;
     /**
      * Constant used in the location settings dialog.
@@ -138,8 +144,9 @@ public class WashersFragment extends Fragment implements OnMapReadyCallback,
     private HashMap<String, Marker> mMarkersList = new HashMap<>();
     private ArrayList<String> mWashersNonfreeList = new ArrayList<>();
     private ArrayList<String> mWashersFreeList = new ArrayList<>();
-    private String currentWasherId;
     private LatLng mCurrentWasherLocation;
+    private Bundle bundle = new Bundle();
+
 
     /**
      * Views
@@ -163,7 +170,8 @@ public class WashersFragment extends Fragment implements OnMapReadyCallback,
     boolean botoom_sheet_expanded;
     private boolean isDirectionAlreadyBuilt;
     private boolean includeBusyWashers;
-    private boolean buildWayToNearWash;
+    private boolean bestWashRoute;
+    private boolean selectedWashRoute;
 
     public WashersFragment() {
         // Required empty public constructor
@@ -183,7 +191,8 @@ public class WashersFragment extends Fragment implements OnMapReadyCallback,
         //setting flags
         isDirectionAlreadyBuilt = false;
         includeBusyWashers = true;
-        buildWayToNearWash = false;
+        bestWashRoute = false;
+        selectedWashRoute = false;
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         ((SupportMapFragment) this.getChildFragmentManager().findFragmentById(R.id.map)).getMapAsync(this);
@@ -310,29 +319,7 @@ public class WashersFragment extends Fragment implements OnMapReadyCallback,
         super.onStart();
         mGoogleApiClient.connect();
     }
-    /**
-     * Updates fields based on data stored in the bundle.
-     *
-     * @param savedInstanceState The activity state saved in the Bundle.
-     */
-    private void updateValuesFromBundle(Bundle savedInstanceState) {
-        if (savedInstanceState != null) {
-            // Update the value of mRequestingLocationUpdates from the Bundle, and make sure that
-            // the Start Updates and Stop Updates buttons are correctly enabled or disabled.
-            if (savedInstanceState.keySet().contains(KEY_REQUESTING_LOCATION_UPDATES)) {
-                mRequestingLocationUpdates = savedInstanceState.getBoolean(
-                        KEY_REQUESTING_LOCATION_UPDATES);
-            }
 
-            // Update the value of mCurrentLocation from the Bundle and update the UI to show the
-            // correct latitude and longitude.
-            if (savedInstanceState.keySet().contains(KEY_LOCATION)) {
-                // Since KEY_LOCATION was found in the Bundle, we can be sure that mCurrentLocation
-                // is not null.
-                mCurrentLocation = savedInstanceState.getParcelable(KEY_LOCATION);
-            }
-        }
-    }
 
     /**
      * Check if the device's location settings are adequate for the app's needs using the
@@ -346,6 +333,58 @@ public class WashersFragment extends Fragment implements OnMapReadyCallback,
                         mLocationSettingsRequest
                 );
         result.setResultCallback(this);
+    }
+
+    @Override
+    public void onResult(@NonNull LocationSettingsResult locationSettingsResult) {
+        final Status status = locationSettingsResult.getStatus();
+        switch (status.getStatusCode()) {
+            case LocationSettingsStatusCodes.SUCCESS:
+                break;
+            case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
+                //Location settings are not satisfied. Show the user a dialog to upgrade location settings
+                try {
+                    // Show the dialog by calling startResolutionForResult(), and check the result
+                    // in onActivityResult().
+                    status.startResolutionForResult(mContext, REQUEST_CHECK_SETTINGS);
+                } catch (IntentSender.SendIntentException e) {
+                    //PendingIntent unable to execute request
+
+                }
+                break;
+            case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
+                //"Location settings are inadequate, and cannot be fixed here. Dialog not created.
+                break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            // Check for the integer request code originally supplied to startResolutionForResult().
+            case REQUEST_CHECK_SETTINGS:
+                switch (resultCode) {
+                    case Activity.RESULT_OK:
+                        //User agreed to make required location settings changes.
+                        startLocationUpdates();
+                        isDirectionAlreadyBuilt = false;
+                        break;
+                    case Activity.RESULT_CANCELED:
+                        //User chose not to make required location settings changes.
+                        break;
+                }
+                break;
+            case SIGN_IN:
+                checkLocationSettings();
+                if (selectedWashRoute) {
+                    AppCompatDialogFragment addCarDialog = new OrderDialog();
+                    addCarDialog.setArguments(bundle);
+                    addCarDialog.setTargetFragment(WashersFragment.this, 12);
+                    addCarDialog.show(getFragmentManager(), "Order");
+                }
+                break;
+        }
     }
 
     @Override
@@ -412,53 +451,6 @@ public class WashersFragment extends Fragment implements OnMapReadyCallback,
         mLocationSettingsRequest = builder.build();
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            // Check for the integer request code originally supplied to startResolutionForResult().
-            case REQUEST_CHECK_SETTINGS:
-                switch (resultCode) {
-                    case Activity.RESULT_OK:
-                        //User agreed to make required location settings changes.
-                        startLocationUpdates();
-                        isDirectionAlreadyBuilt = false;
-                        buildRouteFromCurrentToMarkerLocation();
-                        break;
-                    case Activity.RESULT_CANCELED:
-                        //User chose not to make required location settings changes.
-                        break;
-                }
-                break;
-        }
-    }
-
-    @Override
-    public void onResult(@NonNull LocationSettingsResult locationSettingsResult) {
-        final Status status = locationSettingsResult.getStatus();
-        switch (status.getStatusCode()) {
-            case LocationSettingsStatusCodes.SUCCESS:
-                //All location settings are satisfied.
-                startLocationUpdates();
-                isDirectionAlreadyBuilt = false;
-
-                buildRouteFromCurrentToMarkerLocation();
-                break;
-            case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
-                //Location settings are not satisfied. Show the user a dialog to upgrade location settings
-                try {
-                    // Show the dialog by calling startResolutionForResult(), and check the result
-                    // in onActivityResult().
-                    status.startResolutionForResult(mContext, REQUEST_CHECK_SETTINGS);
-                } catch (IntentSender.SendIntentException e) {
-                    //PendingIntent unable to execute request
-                }
-                break;
-            case LocationSettingsStatusCodes.SETTINGS_CHANGE_UNAVAILABLE:
-                //"Location settings are inadequate, and cannot be fixed here. Dialog not created.
-                break;
-        }
-    }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -499,7 +491,7 @@ public class WashersFragment extends Fragment implements OnMapReadyCallback,
     @Override
     public boolean onMarkerClick(Marker marker) {
         //Move camera to clicked marker and set washer's id to currentWash string
-        currentWasherId = marker.getTitle();
+        bundle.putString("current-washer-id", marker.getTitle());
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 14));
         //Inflating bottom sheet view by washer details
         inflateWasherDetails(mWashersList.get(marker.getTitle()));
@@ -541,7 +533,7 @@ public class WashersFragment extends Fragment implements OnMapReadyCallback,
 
         for (Route route : routes) {
             if (!isDirectionAlreadyBuilt)
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(route.startLocation, 14));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(route.startLocation, 12));
 
             PolylineOptions polylineOptions = new PolylineOptions().
                     geodesic(true).
@@ -577,9 +569,16 @@ public class WashersFragment extends Fragment implements OnMapReadyCallback,
                 break;
 
             case R.id.bottom_sheet_order_fab:
-                mProgressBar.setVisibility(View.VISIBLE);
-                mCurrentWasherLocation = mMarkersList.get(currentWasherId).getPosition();
-                checkLocationSettings();
+                selectedWashRoute = true;
+                if (getCurrentUser() == null)
+                    startActivityForResult(new Intent(getActivity(), LoginActivity.class), SIGN_IN);
+                else {
+                    checkLocationSettings();
+                    AppCompatDialogFragment addCarDialog = new OrderDialog();
+                    addCarDialog.setArguments(bundle);
+                    addCarDialog.setTargetFragment(WashersFragment.this, 12);
+                    addCarDialog.show(getFragmentManager(), "Order");
+                }
                 break;
 
             case R.id.fab_get_direction:
@@ -587,9 +586,13 @@ public class WashersFragment extends Fragment implements OnMapReadyCallback,
                     Toast.makeText(mContext, "No washers avaliable", Toast.LENGTH_SHORT).show();
                     break;
                 }
-                mProgressBar.setVisibility(View.VISIBLE);
-                buildWayToNearWash = true;
-                checkLocationSettings();
+                bestWashRoute = true;
+                if (getCurrentUser() == null)
+                    startActivityForResult(new Intent(getActivity(), LoginActivity.class), SIGN_IN);
+                else {
+                    mProgressBar.setVisibility(View.VISIBLE);
+                    checkLocationSettings();
+                }
                 break;
         }
     }
@@ -640,10 +643,9 @@ public class WashersFragment extends Fragment implements OnMapReadyCallback,
     public void onLocationChanged(Location location) {
         // New location has now been determined
         mCurrentLocation = location;
-        if (buildWayToNearWash) {
-            Marker marker = find_closest_marker();
-            if (marker != null) mCurrentWasherLocation = marker.getPosition();
-            buildWayToNearWash = false;
+        if (bestWashRoute) {
+            orderToNearestWash();
+            bestWashRoute = false;
         }
         buildRouteFromCurrentToMarkerLocation();
     }
@@ -698,4 +700,26 @@ public class WashersFragment extends Fragment implements OnMapReadyCallback,
 //        super.onSaveInstanceState(savedInstanceState);
     }
 
+    @Override
+    public void onOrder(Order order) {
+        mProgressBar.setVisibility(View.VISIBLE);
+        mCurrentWasherLocation = mMarkersList.get(bundle.getString("current-washer-id")).getPosition();
+
+        startLocationUpdates();
+        isDirectionAlreadyBuilt = false;
+
+        buildRouteFromCurrentToMarkerLocation();
+    }
+
+    public void orderToNearestWash() {
+        Marker marker = find_closest_marker();
+        if (marker != null) {
+            bundle.putString("current-washer-id", marker.getTitle());
+            AppCompatDialogFragment addCarDialog = new OrderDialog();
+            addCarDialog.setArguments(bundle);
+            addCarDialog.setTargetFragment(WashersFragment.this, 12);
+            addCarDialog.show(getFragmentManager(), "Order");
+        }
+
+    }
 }

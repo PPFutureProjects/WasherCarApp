@@ -120,21 +120,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.github.pinball83\masked-edittext\1.0.3\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="86b0dfbd52c89f01fd58aa853cca6e81614d6374">
-        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.pinball83-masked-edittext-1.0.3_b8bf57a5465c2a4b0020c34d871bd2d7f743e1d2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
         sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
         <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-connection-10.0.1_7bab71f895198437265b9992718efab556bd8216\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.github.pinball83\masked-edittext\1.0.3\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="86b0dfbd52c89f01fd58aa853cca6e81614d6374">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.github.pinball83-masked-edittext-1.0.3_b8bf57a5465c2a4b0020c34d871bd2d7f743e1d2\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -147,15 +147,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\androks\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.2.2\d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b\jackson-core-2.2.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
-        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-core-2.2.2_549a70c1d5756c81c1ee4270fd6d88a268070ea4\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\10.0.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -165,12 +156,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.0.1\jars\classes.jar"
+        jar="C:\Users\androks\.gradle\caches\modules-2\files-2.1\com.fasterxml.jackson.core\jackson-core\2.2.2\d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b\jackson-core-2.2.2.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
-        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.0.1_2d599f55018886ec318de14ddbe071c6636c71b1\classes.dex" />
+        sha1="d20be6a5ddd6f8cfd36ebf6dea329873a1c41f1b">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\jackson-core-2.2.2_549a70c1d5756c81c1ee4270fd6d88a268070ea4\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -180,6 +171,15 @@
         revision="25.0.0"
         sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
         <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-iid-10.0.1_f9b04bbfeec4ce759db6b9718037eb746bcc3596\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\10.0.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.firebase-firebase-database-10.0.1_2d599f55018886ec318de14ddbe071c6636c71b1\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -466,7 +466,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="8aa314914ede68deb3339b21bad9bce99efaa1c4">
+        sha1="f2f0c5de140c06b0b778a56eafb58483ab2c44a6">
         <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_91617c2a7b1d2d358dd5b3425949670522cfa524\classes.dex" />
     </item>
     <item
@@ -673,7 +673,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="f6e24490b52a635fe1116a74a8825287111d7c89">
+        sha1="91d2135282f1326fd1dcf5d173c00a8543591181">
         <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_abc8a88603b55d40ce421e98411891b8e5ee572c\classes.dex" />
     </item>
     <item

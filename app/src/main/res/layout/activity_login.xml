@@ -11,57 +11,93 @@
     tools:context="androks.washerapp.Activities.LoginActivity">
 
     <LinearLayout
+        android:id="@+id/login_car_form"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:id="@+id/phone_form"
         android:visibility="gone"
         tools:visibility="visible">
 
         <ImageView
-            android:id="@+id/social_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="16dp"
+            android:layout_weight="1"
             android:contentDescription="Social Icon"
             android:src="@drawable/ic_social" />
 
-            <com.github.pinball83.maskededittext.MaskedEditText
-                android:id="@+id/phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                app:mask="380 (**) ** ** ***"
-                app:notMaskedSymbol="*" />
-        <Button
-            android:id="@+id/phone_confirm"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Confirm"/>
+            android:layout_weight="2"
+            android:orientation="vertical">
+
+            <include layout="@layout/car_dialog" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/login_phone_form"
         android:layout_width="match_parent"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:visibility="gone"
-        android:id="@+id/try_again_form">
+        tools:visibility="visible">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1"
+            android:contentDescription="Social Icon"
+            android:src="@drawable/ic_social" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:orientation="vertical">
+
+            <com.github.pinball83.maskededittext.MaskedEditText
+                android:id="@+id/login_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:inputType="number"
+                app:mask="380 (**) ** ** ***"
+                app:notMaskedSymbol="*" />
+
+            <Button
+                android:id="@+id/phone_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Confirm" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/try_login_again_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
+            style="@android:style/TextAppearance.DeviceDefault.Large"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="16dp"
-            style="@android:style/TextAppearance.DeviceDefault.Large"
-            android:text="Login Failed. Please, try again"/>
+            android:text="Login Failed. Please, try again" />
 
         <Button
             android:id="@+id/try_again_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Try again"/>
+            android:text="Try again" />
     </LinearLayout>
 
     <!-- Login progress -->

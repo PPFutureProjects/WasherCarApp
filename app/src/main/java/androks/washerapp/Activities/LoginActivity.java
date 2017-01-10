@@ -4,9 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import com.github.pinball83.maskededittext.MaskedEditText;
@@ -29,6 +37,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
+import androks.washerapp.Models.Car;
 import androks.washerapp.R;
 
 /**
@@ -45,12 +59,19 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
 
     // UI references.
     private MaskedEditText mPhoneView;
-    private Button mConfirmBtn;
     private ProgressBar mProgressView;
     private View mPhoneForm;
     private View mTryAgainForm;
-    private String mCurrentUserId;
+    private View mCarForm;
+    private Button mConfirmCar;
+    private Button mConfirmPhone;
     private FirebaseUser mCurrentUser;
+
+    private HashMap<String, List<String>> mCarList = new HashMap<>();
+
+    private EditText mCarNumber;
+    private AutoCompleteTextView mCarMaker;
+    private AutoCompleteTextView mCarModel;
 
 
     private boolean isRegistrationSuccess;
@@ -60,16 +81,112 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         isRegistrationSuccess = false;
-
         // Set up the login form.
-        mPhoneView = (MaskedEditText) findViewById(R.id.phone);
-        mConfirmBtn = (Button) findViewById(R.id.phone_confirm);
+        mPhoneView = (MaskedEditText) findViewById(R.id.login_phone);
         mProgressView = (ProgressBar) findViewById(R.id.login_progress);
-        mPhoneForm = findViewById(R.id.phone_form);
-        mTryAgainForm = findViewById(R.id.try_again_form);
+        mPhoneForm = findViewById(R.id.login_phone_form);
+        mTryAgainForm = findViewById(R.id.try_login_again_form);
+        mCarForm = findViewById(R.id.login_car_form);
 
-        (findViewById(R.id.phone_confirm)).setOnClickListener(this);
+        mCarNumber = (EditText) findViewById(R.id.car_number);
+        mCarMaker = (AutoCompleteTextView) findViewById(R.id.car_maker);
+        mCarModel = (AutoCompleteTextView) findViewById(R.id.car_model);
+        mCarMaker.setThreshold(0);
+        mCarModel.setThreshold(0);
+
+        mConfirmCar = (Button) findViewById(R.id.car_confirm);
+        mConfirmCar.setOnClickListener(this);
+        mConfirmPhone = (Button) findViewById(R.id.phone_confirm);
+        mConfirmPhone.setOnClickListener(this);
         (findViewById(R.id.try_again_btn)).setOnClickListener(this);
+
+        mCarMaker.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                mCarMaker.setText("");
+                mCarModel.setText("");
+                mCarModel.setEnabled(false);
+                mCarNumber.setEnabled(false);
+                mConfirmCar.setEnabled(false);
+                return false;
+            }
+        });
+        mCarMaker.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                mCarModel.setEnabled(true);
+                mCarModel.setAdapter(new ArrayAdapter<>(LoginActivity.this,
+                        android.R.layout.simple_list_item_1,
+                        mCarList.get(mCarMaker.getText().toString())));
+                mCarModel.requestFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+            }
+        });
+        mCarModel.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                mCarModel.setText("");
+                mCarNumber.setText("");
+                mCarNumber.setEnabled(false);
+                mConfirmCar.setEnabled(false);
+                return false;
+            }
+        });
+
+        mCarModel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                mCarNumber.setEnabled(true);
+                mCarNumber.requestFocus();
+                InputMethodManager imm = (InputMethodManager) getSystemService(AppCompatActivity.INPUT_METHOD_SERVICE);
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
+            }
+        });
+
+        mCarNumber.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.length() > 4)
+                    mConfirmCar.setEnabled(true);
+                else
+                    mConfirmCar.setEnabled(false);
+            }
+        });
+
+
+        FirebaseDatabase.getInstance().getReference().child("cars").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                List<String> makers = new ArrayList<>();
+                List<String> models;
+                for (DataSnapshot child : dataSnapshot.getChildren()) {
+                    makers.add(child.getKey());
+
+                    models = Arrays.asList(child.getValue(String.class).split(","));
+
+                    mCarList.put(child.getKey(), models);
+                }
+                ArrayAdapter<String> adapter = new ArrayAdapter<>
+                        (LoginActivity.this, android.R.layout.simple_list_item_1, makers);
+                mCarMaker.setAdapter(adapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
 
         // [START config_signin]
@@ -96,7 +213,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
     @Override
     protected void onStart() {
         super.onStart();
-        if(!mGoogleApiClient.isConnected())
+        if (!mGoogleApiClient.isConnected())
             mGoogleApiClient.connect();
     }
 
@@ -130,7 +247,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (!task.isSuccessful()) {
                             mTryAgainForm.setVisibility(View.VISIBLE);
-                        }else{
+                        } else {
                             mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
                             DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference().child("users");
                             rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -138,7 +255,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
                                 public void onDataChange(DataSnapshot snapshot) {
                                     if (snapshot.hasChild(mCurrentUser.getUid())) {
                                         userLoggedIn();
-                                    }else{
+                                    } else {
                                         mPhoneForm.setVisibility(View.VISIBLE);
                                     }
                                 }
@@ -166,7 +283,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
+        switch (view.getId()) {
             case R.id.try_again_btn:
                 mTryAgainForm.setVisibility(View.GONE);
                 signIn();
@@ -176,41 +293,56 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener,
                     mPhoneView.setError("Required");
                     return;
                 }
-                writeUserToDB();
+                mPhoneForm.setVisibility(View.GONE);
+                mCarForm.setVisibility(View.VISIBLE);
+                break;
+
+            case R.id.car_confirm:
+                writeDataToDB();
                 isRegistrationSuccess = true;
                 userLoggedIn();
                 break;
         }
     }
 
-    private void userLoggedIn(){
+    private void writeDataToDB() {
+        DatabaseReference mCurrentUserRef = FirebaseDatabase.getInstance().getReference().child("users").child(mCurrentUser.getUid());
+        mCurrentUserRef.child("email")
+                .setValue(mCurrentUser.getEmail());
+        mCurrentUserRef.child("email")
+                .child("phone")
+                .setValue(mPhoneView.getText().toString());
+
+        //First letter of maker to uppercase
+        String maker = String.valueOf(mCarMaker.getText().toString().toUpperCase().charAt(0));
+        maker += mCarMaker.getText().toString().substring(1, mCarMaker.getText().length());
+
+        Car car = new Car(maker,
+                mCarModel.getText().toString(),
+                mCarNumber.getText().toString().toUpperCase());
+
+        String key = mCurrentUserRef.child("cars").push().getKey();
+        car.setId(key);
+        mCurrentUserRef.child("cars").child(key).setValue(car);
+        mCurrentUserRef.child("current-car").setValue(key);
+    }
+
+    private void userLoggedIn() {
         Intent intent = new Intent();
         setResult(RESULT_OK, intent);
+        isRegistrationSuccess = true;
         finish();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        if(!isRegistrationSuccess && mGoogleApiClient.isConnected()){
+        if (!isRegistrationSuccess && mGoogleApiClient.isConnected()) {
             // Firebase sign out
             mAuth.signOut();
             // Google sign out
             Auth.GoogleSignInApi.signOut(mGoogleApiClient);
         }
-    }
-
-    private void writeUserToDB() {
-        FirebaseDatabase.getInstance().getReference()
-                .child("users")
-                .child(mCurrentUser.getUid())
-                .child("email")
-                .setValue(mCurrentUser.getEmail());
-        FirebaseDatabase.getInstance().getReference()
-                .child("users")
-                .child(mCurrentUser.getUid())
-                .child("phone")
-                .setValue(mPhoneView.getText().toString());
     }
 
     @Override

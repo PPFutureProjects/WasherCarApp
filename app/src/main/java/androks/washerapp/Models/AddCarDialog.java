@@ -57,7 +57,7 @@ public class AddCarDialog extends AppCompatDialogFragment implements  View.OnCli
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.add_car_dialog, container, false);
+        View view = inflater.inflate(R.layout.car_dialog, container, false);
         Dialog dialog = getDialog();
         dialog.setCancelable(true);
         dialog.setCanceledOnTouchOutside(true);
@@ -69,7 +69,9 @@ public class AddCarDialog extends AppCompatDialogFragment implements  View.OnCli
         mCarMaker.setThreshold(0);
         mCarModel.setThreshold(0);
         mAddCarForm = view.findViewById(R.id.add_car_form);
+        mAddCarForm.setVisibility(View.GONE);
         mProgressBar = view.findViewById(R.id.loading_car_lists);
+        mProgressBar.setVisibility(View.VISIBLE);
         mConfirmButton = (Button) view.findViewById(R.id.car_confirm);
         mConfirmButton.setOnClickListener(this);
 
