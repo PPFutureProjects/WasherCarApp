@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/globalLayout"
-    tools:context="androks.washerapp.Activities.WashersActivity">
+    android:id="@+id/globalLayout">
 
     <fragment
         android:id="@+id/map"
@@ -39,16 +38,17 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="#66ffffff"
+        android:background="#caffffff"
         android:orientation="horizontal"
         android:visibility="visible"
-        android:padding="6dp">
+        android:layout_margin="8dp"
+        android:padding="8dp">
 
         <ProgressBar
             style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_margin="4dp"
             android:indeterminate="true" />
 
         <TextView

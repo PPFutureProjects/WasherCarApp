@@ -8,13 +8,38 @@ public class Washer {
     private boolean status;
     private double langtitude;
     private double longtitude;
+    private int standartPrice;
+    private int boxes;
+    private int freeBoxes;
     private boolean cafe;
     private boolean wifi;
+    private boolean restRoom;
     private String hours;
     private String id;
     private String name;
     private String phone;
     private String uid;
+    private String location;
+
+    public int getStandartPrice() {
+        return standartPrice;
+    }
+
+    public int getBoxes() {
+        return boxes;
+    }
+
+    public int getFreeBoxes() {
+        return freeBoxes;
+    }
+
+    public boolean getRestRoom() {
+        return restRoom;
+    }
+
+    public String getLocation() {
+        return location;
+    }
 
     public void setStatus(boolean status) {
         this.status = status;
@@ -68,13 +93,21 @@ public class Washer {
         this.id = id;
     }
 
-    public Washer(double langtitude, double longtitude, boolean cafe, boolean wifi, String hours, String id, String name, String phone, String uid) {
-        this(langtitude, longtitude, id);
-        this.cafe = cafe;
-        this.wifi = wifi;
-        this.hours = hours;
-        this.name = name;
-        this.phone = phone;
+    public Washer(boolean status, String location, String uid, String phone, String name, String id, String hours, boolean wifi, boolean restRoom, boolean cafe, int freeBoxes, int boxes, int standartPrice, double longtitude, double langtitude) {
+        this.status = status;
+        this.location = location;
         this.uid = uid;
+        this.phone = phone;
+        this.name = name;
+        this.id = id;
+        this.hours = hours;
+        this.wifi = wifi;
+        this.restRoom = restRoom;
+        this.cafe = cafe;
+        this.freeBoxes = freeBoxes;
+        this.boxes = boxes;
+        this.standartPrice = standartPrice;
+        this.longtitude = longtitude;
+        this.langtitude = langtitude;
     }
 }

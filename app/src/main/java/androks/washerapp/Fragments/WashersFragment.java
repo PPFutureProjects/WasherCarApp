@@ -369,6 +369,13 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
                         //User agreed to make required location settings changes.
                         startLocationUpdates();
                         isDirectionAlreadyBuilt = false;
+                        if(selectedWashRoute){
+                            AppCompatDialogFragment addCarDialog = new OrderDialog();
+                            addCarDialog.setArguments(bundle);
+                            addCarDialog.setTargetFragment(WashersFragment.this, 12);
+                            addCarDialog.show(getFragmentManager(), "Order");
+                            selectedWashRoute = false;
+                        }
                         break;
                     case Activity.RESULT_CANCELED:
                         //User chose not to make required location settings changes.
@@ -506,9 +513,10 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
         //TODO: create normal washers details view
         View bottomSheet = mContext.findViewById(R.id.bottom_sheet);
         ((TextView) bottomSheet.findViewById(R.id.washer_name)).setText(washer.getName());
-        ((TextView) bottomSheet.findViewById(R.id.washer_location)).setText(String.valueOf(washer.getLangtitude() + washer.getLongtitude()));
+        ((TextView) bottomSheet.findViewById(R.id.washer_location)).setText(washer.getLocation());
         ((TextView) bottomSheet.findViewById(R.id.washer_phone)).setText(washer.getPhone());
         ((TextView) bottomSheet.findViewById(R.id.washer_opening_hours)).setText(washer.getHours());
+        ((TextView) bottomSheet.findViewById(R.id.washer_free_boxes)).setText(washer.getFreeBoxes()+ " of " + washer.getBoxes() + " are free");
     }
 
     @Override
@@ -574,10 +582,6 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
                     startActivityForResult(new Intent(getActivity(), LoginActivity.class), SIGN_IN);
                 else {
                     checkLocationSettings();
-                    AppCompatDialogFragment addCarDialog = new OrderDialog();
-                    addCarDialog.setArguments(bundle);
-                    addCarDialog.setTargetFragment(WashersFragment.this, 12);
-                    addCarDialog.show(getFragmentManager(), "Order");
                 }
                 break;
 
