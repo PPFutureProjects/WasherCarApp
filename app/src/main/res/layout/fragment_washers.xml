@@ -4,15 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <include
-            android:id="@+id/content_washers_map"
-            layout="@layout/content_washers_map" />
-    </LinearLayout>
+    <include
+        android:id="@+id/content_washers_map"
+        layout="@layout/content_washers_map" />
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/bottom_sheet"

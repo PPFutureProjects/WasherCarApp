@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatDialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +35,6 @@ public class OrderDialog extends AppCompatDialogFragment implements View.OnClick
     private TextView washerTV;
     private TextView priceTV;
     private TextView locationTV;
-    private View mProgressView;
     private View mOrderForm;
 
     public OrderDialog() {
@@ -47,17 +47,17 @@ public class OrderDialog extends AppCompatDialogFragment implements View.OnClick
         Dialog dialog = getDialog();
         dialog.setCancelable(true);
         dialog.setCanceledOnTouchOutside(true);
+        dialog.setTitle("Order");
 
         washerTV = (TextView) view.findViewById(R.id.order_washer_name);
         priceTV = (TextView) view.findViewById(R.id.order_price);
         carTV = (TextView) view.findViewById(R.id.order_car);
         locationTV = (TextView) view.findViewById(R.id.order_washer_location);
         mOrderForm = view.findViewById(R.id.order_form);
-        mProgressView = view.findViewById(R.id.order_loading);
         mOrderForm.setVisibility(View.GONE);
-        mProgressView.setVisibility(View.VISIBLE);
 
         view.findViewById(R.id.order_confirm).setOnClickListener(this);
+        view.findViewById(R.id.order_cancel).setOnClickListener(this);
 
         Bundle bundle = getArguments();
         if (bundle.getString("current-washer-id") != null)
@@ -118,20 +118,27 @@ public class OrderDialog extends AppCompatDialogFragment implements View.OnClick
         carTV.setText(car.toString());
         priceTV.setText("110");
         mOrderForm.setVisibility(View.VISIBLE);
-        mProgressView.setVisibility(View.GONE);
     }
 
     @Override
     public void onStart() {
+        getDialog().getWindow().setLayout(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         super.onStart();
-        getDialog().getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
     }
 
     @Override
     public void onClick(View view) {
-        ( (OrderToWashListener) getTargetFragment() ).onOrder(new Order(
-               washer, car, ((BaseFragment) getTargetFragment()).getCurrentUser(), 110
-        ));
-        this.dismiss();
+        switch (view.getId()){
+            case R.id.order_cancel:
+                this.dismiss();
+                break;
+
+            case R.id.order_confirm:
+                ( (OrderToWashListener) getTargetFragment() ).onOrder(new Order(
+                        washer, car, ((BaseFragment) getTargetFragment()).getCurrentUser(), 110
+                ));
+                this.dismiss();
+                break;
+        }
     }
 }

@@ -172,6 +172,7 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
     private boolean includeBusyWashers;
     private boolean bestWashRoute;
     private boolean selectedWashRoute;
+    private boolean dialogIsShowing;
 
     public WashersFragment() {
         // Required empty public constructor
@@ -340,6 +341,13 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
         final Status status = locationSettingsResult.getStatus();
         switch (status.getStatusCode()) {
             case LocationSettingsStatusCodes.SUCCESS:
+                if(selectedWashRoute){
+                    AppCompatDialogFragment addCarDialog = new OrderDialog();
+                    addCarDialog.setArguments(bundle);
+                    addCarDialog.setTargetFragment(WashersFragment.this, 12);
+                    addCarDialog.show(getFragmentManager(), "Order");
+                    selectedWashRoute = false;
+                }
                 break;
             case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
                 //Location settings are not satisfied. Show the user a dialog to upgrade location settings
@@ -532,7 +540,6 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
     @Override
     public void onDirectionFinderSuccess(List<Route> routes) {
 
-
         if (polylinePaths != null)
             for (Polyline polyline : polylinePaths)
                 polyline.remove();
@@ -541,7 +548,7 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
 
         for (Route route : routes) {
             if (!isDirectionAlreadyBuilt)
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(route.startLocation, 12));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(route.startLocation, 16));
 
             PolylineOptions polylineOptions = new PolylineOptions().
                     geodesic(true).
@@ -581,6 +588,7 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
                 if (getCurrentUser() == null)
                     startActivityForResult(new Intent(getActivity(), LoginActivity.class), SIGN_IN);
                 else {
+                    mProgressBar.setVisibility(View.VISIBLE);
                     checkLocationSettings();
                 }
                 break;
@@ -594,8 +602,8 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
                 if (getCurrentUser() == null)
                     startActivityForResult(new Intent(getActivity(), LoginActivity.class), SIGN_IN);
                 else {
-                    mProgressBar.setVisibility(View.VISIBLE);
                     checkLocationSettings();
+                    mProgressBar.setVisibility(View.VISIBLE);
                 }
                 break;
         }

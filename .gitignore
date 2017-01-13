@@ -49,3 +49,5 @@ captures/
 .gitignore
 app/libs/
 app/src/main/res/drawable-v23/
+.idea/inspectionProfiles/
+app/src/main/res/layout-v21/

@@ -1,101 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/order_form"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    app:elevation="24dp">
 
     <LinearLayout
-        android:id="@+id/order_form"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="@dimen/activity_padding">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:padding="24dp">
 
             <TextView
-                android:layout_width="0dp"
+                android:id="@+id/washer_name"
+                style="@style/TextAppearance.AppCompat.Headline"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Washer name" />
+                android:text="Confirm order?" />
 
-            <TextView
-                android:id="@+id/order_washer_name"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:text="У миколи" />
+                android:orientation="horizontal"
+                android:paddingTop="20dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/name" />
+
+                <TextView
+                    android:id="@+id/order_washer_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="У миколи" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/location" />
+
+                <TextView
+                    android:id="@+id/order_washer_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="Borschavivska, 144" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/car" />
+
+                <TextView
+                    android:id="@+id/order_car"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    tools:text="Honda civic, JHHSA" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/price" />
+
+                <TextView
+                    android:id="@+id/order_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="100" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="52dp"
+            android:gravity="end"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Washer location" />
-
-            <TextView
-                android:id="@+id/order_washer_location"
+            <Button
+                android:id="@+id/order_cancel"
+                style="?attr/buttonBarNegativeButtonStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Borschavivska, 144" />
-        </LinearLayout>
+                android:layout_height="36dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="@string/cancel" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Car" />
-
-            <TextView
-                android:id="@+id/order_car"
+            <Button
+                android:id="@+id/order_confirm"
+                style="?attr/buttonBarPositiveButtonStyle"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="Honda civic, JHHSA" />
+                android:layout_height="36dp"
+                android:text="@string/confirm" />
+
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Price" />
-
-            <TextView
-                android:id="@+id/order_price"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="100" />
-        </LinearLayout>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:id="@+id/order_confirm"
-            android:layout_marginTop="16dp"
-            android:text="confirm" />
 
     </LinearLayout>
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:id="@+id/order_loading"
-        style="@android:style/Widget.DeviceDefault.ProgressBar.Large"/>
-</RelativeLayout>
+</ScrollView>
