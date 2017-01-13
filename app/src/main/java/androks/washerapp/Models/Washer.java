@@ -5,12 +5,12 @@ package androks.washerapp.Models;
  */
 
 public class Washer {
-    private boolean status;
     private double langtitude;
     private double longtitude;
     private int standartPrice;
     private int boxes;
     private int freeBoxes;
+    private boolean status;
     private boolean cafe;
     private boolean wifi;
     private boolean restRoom;

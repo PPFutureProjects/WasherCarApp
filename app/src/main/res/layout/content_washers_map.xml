@@ -12,6 +12,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <ProgressBar
+        android:id="@+id/progress_horizontal"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-7dp"
+        android:indeterminate="true"/>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_get_direction"
         android:layout_centerVertical="true"
@@ -30,32 +38,5 @@
         android:layout_above="@+id/fab_get_direction"
         android:layout_alignLeft="@+id/fab_get_direction"
         android:layout_alignStart="@+id/fab_get_direction" />
-
-    <LinearLayout
-        android:id="@+id/loading_indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:background="#caffffff"
-        android:orientation="horizontal"
-        android:visibility="visible"
-        android:layout_margin="8dp"
-        android:padding="8dp">
-
-        <ProgressBar
-            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:indeterminate="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Loading" />
-    </LinearLayout>
 
 </RelativeLayout>

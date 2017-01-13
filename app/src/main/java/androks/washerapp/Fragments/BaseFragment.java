@@ -1,5 +1,6 @@
 package androks.washerapp.Fragments;
 
+import android.app.ProgressDialog;
 import android.support.v4.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -17,6 +18,7 @@ import androks.washerapp.Models.Car;
  */
 
 public abstract class BaseFragment extends Fragment {
+    ProgressDialog progress;
     protected Car mCurrentCar;
     protected FirebaseUser mCurrentUser;
 
@@ -60,5 +62,14 @@ public abstract class BaseFragment extends Fragment {
                 }
             });
         }
+    }
+
+    protected void showProgressDialog(){
+        progress = ProgressDialog.show(getActivity(), "Please wait a few second",
+                "Loading...", true);
+    }
+
+    protected void hideProgressDialog(){
+        progress.dismiss();
     }
 }
