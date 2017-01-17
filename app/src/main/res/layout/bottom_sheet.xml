@@ -24,16 +24,17 @@
         android:layout_marginTop="25dp"
         android:background="@android:color/white"
         android:orientation="vertical"
-        android:paddingBottom="16dp"
-        app:elevation="16dp">
+        android:paddingBottom="16dp">
 
         <LinearLayout
             android:id="@+id/bottom_sheet_title"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:orientation="vertical"
-            android:paddingLeft="56dp"
-            android:paddingStart="56dp"
+            android:paddingEnd="8dp"
+            android:paddingLeft="36dp"
+            android:paddingRight="8dp"
+            android:paddingStart="36dp"
             android:paddingTop="15dp">
 
             <TextView
@@ -81,14 +82,62 @@
                 android:alpha="0.12"
                 android:background="@android:color/black" />
 
-            <TextView
-                android:id="@+id/washer_free_boxes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingBottom="8dp"
-                android:paddingTop="8dp"
-                android:textColor="?attr/colorPrimary"
-                tools:text="7 of 12 boxes free" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/washer_free_boxes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:textColor="?attr/colorPrimary"
+                    tools:text="7 of 12 boxes free" />
+
+                <ImageView
+                    android:id="@+id/wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.3"
+                    android:gravity="end"
+                    android:src="@drawable/ic_action_wifi"
+                    android:visibility="gone"
+                    tools:visibility="visible"/>
+
+                <ImageView
+                    android:id="@+id/coffee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.3"
+                    android:gravity="end"
+                    android:src="@drawable/ic_action_coffee"
+                    android:visibility="gone"
+                    tools:visibility="visible"/>
+
+                <ImageView
+                    android:id="@+id/rest_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.3"
+                    android:gravity="end"
+                    android:src="@drawable/ic_action_rest_room"
+                    android:visibility="gone"
+                    tools:visibility="visible"/>
+
+                <ImageView
+                    android:id="@+id/lunch_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.3"
+                    android:gravity="end"
+                    android:src="@drawable/ic_action_restaurant"
+                    android:visibility="gone"
+                    tools:visibility="visible"/>
+
+            </LinearLayout>
+
 
         </LinearLayout>
 
@@ -166,15 +215,13 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/moreBtn"
             style="?attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
             android:drawableEnd="@drawable/ic_action_arrow_right"
             android:drawableRight="@drawable/ic_action_arrow_right"
-            android:text="more" />
-
+            android:text="@string/more" />
     </LinearLayout>
 </FrameLayout>

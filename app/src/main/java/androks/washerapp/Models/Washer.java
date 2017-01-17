@@ -14,6 +14,7 @@ public class Washer {
     private boolean cafe;
     private boolean wifi;
     private boolean restRoom;
+    private boolean lunchRoom;
     private String hours;
     private String id;
     private String name;
@@ -23,6 +24,10 @@ public class Washer {
 
     public int getStandartPrice() {
         return standartPrice;
+    }
+
+    public boolean getLunchRoom() {
+        return lunchRoom;
     }
 
     public int getBoxes() {
@@ -57,11 +62,11 @@ public class Washer {
         return longtitude;
     }
 
-    public boolean isCafe() {
+    public boolean getCafe() {
         return cafe;
     }
 
-    public boolean isWifi() {
+    public boolean getWifi() {
         return wifi;
     }
 
@@ -93,21 +98,22 @@ public class Washer {
         this.id = id;
     }
 
-    public Washer(boolean status, String location, String uid, String phone, String name, String id, String hours, boolean wifi, boolean restRoom, boolean cafe, int freeBoxes, int boxes, int standartPrice, double longtitude, double langtitude) {
+    public Washer(double langtitude, double longtitude, int standartPrice, int boxes, int freeBoxes, boolean status, boolean cafe, boolean wifi, boolean restRoom, boolean lunchRoom, String hours, String id, String name, String phone, String uid, String location) {
+        this.langtitude = langtitude;
+        this.longtitude = longtitude;
+        this.standartPrice = standartPrice;
+        this.boxes = boxes;
+        this.freeBoxes = freeBoxes;
         this.status = status;
-        this.location = location;
-        this.uid = uid;
-        this.phone = phone;
-        this.name = name;
-        this.id = id;
-        this.hours = hours;
+        this.cafe = cafe;
         this.wifi = wifi;
         this.restRoom = restRoom;
-        this.cafe = cafe;
-        this.freeBoxes = freeBoxes;
-        this.boxes = boxes;
-        this.standartPrice = standartPrice;
-        this.longtitude = longtitude;
-        this.langtitude = langtitude;
+        this.lunchRoom = lunchRoom;
+        this.hours = hours;
+        this.id = id;
+        this.name = name;
+        this.phone = phone;
+        this.uid = uid;
+        this.location = location;
     }
 }

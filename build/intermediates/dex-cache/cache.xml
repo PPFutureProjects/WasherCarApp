@@ -430,7 +430,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="7498904e45ec0345e8cd2fa6d09daee5cb25141f">
+        sha1="989ea283a97a006fd601d278e798391e9a2ece93">
         <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_91617c2a7b1d2d358dd5b3425949670522cfa524\classes.dex" />
     </item>
     <item
@@ -754,7 +754,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="e73a122f7483b4ac13796f65bd896715d7a62304">
+        sha1="e10038c1d44ed41f426612500d4feaf5cc17975a">
         <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_abc8a88603b55d40ce421e98411891b8e5ee572c\classes.dex" />
     </item>
     <item

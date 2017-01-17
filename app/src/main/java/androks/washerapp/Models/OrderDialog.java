@@ -25,6 +25,8 @@ import androks.washerapp.R;
 
 public class OrderDialog extends AppCompatDialogFragment implements View.OnClickListener {
 
+    private static final String CURRENT_WASHER_ID = "currentWasherId";
+
     public interface OrderToWashListener {
         void onOrder(Order order);
     }
@@ -60,10 +62,10 @@ public class OrderDialog extends AppCompatDialogFragment implements View.OnClick
         view.findViewById(R.id.order_cancel).setOnClickListener(this);
 
         Bundle bundle = getArguments();
-        if (bundle.getString("current-washer-id") != null)
+        if (bundle.getString(CURRENT_WASHER_ID) != null)
             FirebaseDatabase.getInstance().getReference()
                     .child("washers")
-                    .child(bundle.getString("current-washer-id"))
+                    .child(bundle.getString(CURRENT_WASHER_ID))
                     .addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {

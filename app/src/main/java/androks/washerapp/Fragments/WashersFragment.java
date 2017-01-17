@@ -2,7 +2,6 @@ package androks.washerapp.Fragments;
 
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
@@ -65,6 +64,7 @@ import androks.washerapp.Models.OrderDialog;
 import androks.washerapp.Models.Route;
 import androks.washerapp.Models.Washer;
 import androks.washerapp.R;
+import androks.washerapp.Activities.WasherDetailsActivity;
 
 
 /**
@@ -83,6 +83,8 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
 
 
     private static final int SIGN_IN = 9001;
+
+    private static final String CURRENT_WASHER_ID = "currentWasherId";
     private FragmentActivity mContext;
     /**
      * Constant used in the location settings dialog.
@@ -300,6 +302,7 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
         //Adding listeners for bottom sheet views
         rootView.findViewById(R.id.bottom_sheet_title).setOnClickListener(this);
         rootView.findViewById(R.id.bottom_sheet_order_fab).setOnClickListener(this);
+        rootView.findViewById(R.id.moreBtn).setOnClickListener(this);
 
         return rootView;
     }
@@ -362,28 +365,6 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
-            // Check for the integer request code originally supplied to startResolutionForResult().
-            case REQUEST_CHECK_SETTINGS:
-                switch (resultCode) {
-                    case Activity.RESULT_OK:
-                        //User agreed to make required location settings changes.
-                        startLocationUpdates();
-                        if(routeToSelectedWashIsBuild){
-                            AppCompatDialogFragment addCarDialog = new OrderDialog();
-                            addCarDialog.setArguments(bundle);
-                            addCarDialog.setTargetFragment(WashersFragment.this, 12);
-                            addCarDialog.show(getFragmentManager(), "Order");
-                            mProgressBar.setVisibility(View.GONE);
-                            dialogIsShowing = false;
-                            routeToSelectedWashIsBuild = false;
-                        }
-                        break;
-                    case Activity.RESULT_CANCELED:
-                        //User chose not to make required location settings changes.
-                        dialogIsShowing = false;
-                        break;
-                }
-                break;
             case SIGN_IN:
                 checkLocationSettings();
                 break;
@@ -495,7 +476,7 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
     @Override
     public boolean onMarkerClick(Marker marker) {
         //Move camera to clicked marker and set washer's id to currentWash string
-        bundle.putString("current-washer-id", marker.getTitle());
+        bundle.putString(CURRENT_WASHER_ID, marker.getTitle());
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(marker.getPosition(), 14));
         //Inflating bottom sheet view by washer details
         inflateWasherDetails(mWashersList.get(marker.getTitle()));
@@ -513,6 +494,11 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
         ((TextView) bottomSheet.findViewById(R.id.washer_phone)).setText(washer.getPhone());
         ((TextView) bottomSheet.findViewById(R.id.washer_opening_hours)).setText(washer.getHours());
         ((TextView) bottomSheet.findViewById(R.id.washer_free_boxes)).setText(washer.getFreeBoxes()+ " of " + washer.getBoxes() + " are free");
+        (bottomSheet.findViewById(R.id.lunch_room)).setVisibility(washer.getLunchRoom()? View.VISIBLE: View.GONE);
+        (bottomSheet.findViewById(R.id.rest_room)).setVisibility(washer.getRestRoom()? View.VISIBLE: View.GONE);
+        (bottomSheet.findViewById(R.id.wifi)).setVisibility(washer.getWifi()? View.VISIBLE: View.GONE);
+        (bottomSheet.findViewById(R.id.coffee)).setVisibility(washer.getCafe()? View.VISIBLE: View.GONE);
+
     }
 
     @Override
@@ -557,6 +543,11 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.moreBtn:
+                Intent intent = new Intent(getActivity(), WasherDetailsActivity.class);
+                intent.putExtra("id", bundle.getString(CURRENT_WASHER_ID));
+                startActivity(intent);
+                break;
             case R.id.fab_status_marker:
                 busyWashersIsIncluded = !busyWashersIsIncluded;
                 for (String washerId : mWashersNonfreeList)
@@ -656,9 +647,13 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
         if (routeToBestMatchWashIsBuilt) {
             orderToNearestWash();
             routeToBestMatchWashIsBuilt = false;
+        }else if(routeToSelectedWashIsBuild){
+            orderToSelectedWash();
+            routeToSelectedWashIsBuild = false;
         }
         buildRouteFromCurrentToMarkerLocation();
     }
+
 
     protected void buildRouteFromCurrentToMarkerLocation() {
         if (mCurrentLocation == null || mCurrentWasherLocation == null) return;
@@ -713,18 +708,16 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
     @Override
     public void onOrder(Order order) {
         mProgressBar.setVisibility(View.VISIBLE);
-        mCurrentWasherLocation = mMarkersList.get(bundle.getString("current-washer-id")).getPosition();
-
+        mCurrentWasherLocation = mMarkersList.get(bundle.getString(CURRENT_WASHER_ID)).getPosition();
         startLocationUpdates();
         routeBuildFirstTime = true;
-
         buildRouteFromCurrentToMarkerLocation();
     }
 
     public void orderToNearestWash() {
         Marker marker = find_closest_marker();
         if (marker != null) {
-            bundle.putString("current-washer-id", marker.getTitle());
+            bundle.putString(CURRENT_WASHER_ID, marker.getTitle());
             AppCompatDialogFragment addCarDialog = new OrderDialog();
             addCarDialog.setArguments(bundle);
             addCarDialog.setTargetFragment(WashersFragment.this, 12);
@@ -733,4 +726,14 @@ public class WashersFragment extends BaseFragment implements OnMapReadyCallback,
         }
         dialogIsShowing = false;
     }
+
+    private void orderToSelectedWash() {
+        AppCompatDialogFragment addCarDialog = new OrderDialog();
+        addCarDialog.setArguments(bundle);
+        addCarDialog.setTargetFragment(WashersFragment.this, 12);
+        addCarDialog.show(getFragmentManager(), "Order");
+        mProgressBar.setVisibility(View.GONE);
+        dialogIsShowing = false;
+    }
+
 }
