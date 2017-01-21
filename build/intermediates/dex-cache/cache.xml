@@ -416,6 +416,15 @@
         <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.google.android.gms-play-services-location-10.0.1_98023b796772dc96defc9aaa0e4263c554c3789e\classes.dex" />
     </item>
     <item
+        is-multidex="true"
+        jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\net.cachapa.expandablelayout\expandablelayout\2.6\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e49277142d9d1ef0b7635d9f2af54426d2d12f46">
+        <dex dex="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\transforms\dex\debug\folders\1000\10\net.cachapa.expandablelayout-expandablelayout-2.6_023e1c00db45d1e217906bcdf99e3df141ff5226\classes.dex" />
+    </item>
+    <item
         is-multidex="false"
         jar="B:\Projects\Android_Studio\WasherCarApp\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\10.0.1\jars\classes.jar"
         jumboMode="false"

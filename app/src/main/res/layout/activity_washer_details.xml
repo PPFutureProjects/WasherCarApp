@@ -37,6 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
+                android:gravity="end"
                 android:layout_marginBottom="32dp"
                 android:layout_marginEnd="24dp"
                 android:layout_marginLeft="48dp"
@@ -46,19 +47,23 @@
                 app:layout_collapseMode="parallax">
 
                 <TextView
+                    android:text="12 min away"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Lorem Ipsum Iran "
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/abc_text_size_subhead_material" />
+                    tools:text="12 min away" />
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:src="@drawable/ic_action_star_checked"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12 min away"
-                    android:textColor="@android:color/white"
-                    tools:text="12 min away" />
+                    tools:text="51"/>
+
             </LinearLayout>
 
 

@@ -8,11 +8,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
+
+import net.cachapa.expandablelayout.ExpandableLayout;
 
 import androks.washerapp.R;
 
-public class WasherDetailsActivity extends AppCompatActivity {
+public class WasherDetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
     CollapsingToolbarLayout collapsingToolbar;
     RecyclerView recyclerView;
@@ -46,5 +49,24 @@ public class WasherDetailsActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.prices).setOnClickListener(this);
+        findViewById(R.id.description).setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        ExpandableLayout expandableLayout;
+        switch (view.getId()){
+            case R.id.prices:
+                expandableLayout = (ExpandableLayout) findViewById(R.id.expandable_prices);
+                expandableLayout.toggle(true);
+                break;
+
+            case R.id.description:
+                expandableLayout = (ExpandableLayout) findViewById(R.id.expandable_description);
+                expandableLayout.toggle(true);
+                break;
+        }
     }
 }
