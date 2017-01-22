@@ -38,4 +38,6 @@
     <color name="orange">#FF9800</color>
     <color name="deep_orange">#FF5722</color>
     <color name="colorFocused">#bbdefb</color>
+    <color name="colorServiceAvailable">#f44336</color>
+    <color name="colorServiceNotAvailable">#9b9b9b</color>
 </resources>
